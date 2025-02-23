@@ -3,54 +3,56 @@
 
 \chapter{Introduction}\label{chapter:introduction}
 
-This opening chapter will provide an overview of the research topic, going over the motivation behind the study, the research questions, and the 
+This opening chapter will provide an overview of the research topic, reviewing the study's motivation, the research questions, and the 
 methodology. The chapter will also provide a brief outline of the structure of the thesis.
 
 \section{Motivation}
 
-% What are natural languages? why do they exist? How do they develop?
-The goal of human language, much like any other human activity is to aid our survival and propagation. It helps us to collaborate, compete and 
-influence others \cite{Levshina_2022}. Another hallmark of all living beings is efficiency, as a product of biological evolution \cite{haCostBenefit2010}. 
-Thus languages form from a trade-off between expressiveness and efficiency. Thus, languages tend to follow rules like Zipf's Law of Abbreviations CITE, 
-that words which are more frequently used tend to be shorter than sparsely used words. 
+% What are natural languages? Why do they exist? How do they develop?
+The goal of human language, much like any other human activity, is to aid our survival and propagation. It helps us to collaborate, compete and 
+influence others \cite{Levshina_2022}. Efficiency is another hallmark of all living beings, as a product of biological evolution \cite{haCostBenefit2010}. 
+Thus, languages form from a trade-off between expressiveness and efficiency. They tend to follow rules like Zipf's Law of Abbreviations CITE, 
+that words that are more frequently used tend to be shorter than sparsely used words. 
 
 % Why is natural language not an optimal length code?
-This is of course an idealization. In the real world, speakers must talk in noisy environments, which mean that languages often have redundancy
+This is, of course, an idealization. In the real world, speakers must talk in noisy environments, which means that languages often have redundancy
 built in. This redundancy helps in error correction and understanding in such noisy environments. In addition, natural languages are not an
 optimal code in terms of information theory. This is due to the fact that human languages are constrained by the limitations of incremental
-language processing, which enforces constraints which forces systematicity, compositionality and concatenation as means of 
+language processing, which enforces constraints which force systematicity, compositionality and concatenation as means of 
 combination \cite{futrellInformationTheoryBridge2022}.
 
 % Introduction to conlangs, and a brief history of conlangs
-Constructed Languages (ConLangs) are languages that have been constructed by an individual or group of individuals rather than having evolved 
+Constructed Languages (ConLangs) are languages constructed by an individual or group of individuals rather than having evolved 
 naturally \cite{schreyerConstructedLanguages2021}. ConLangs are used for various purposes, such as to serve as an international auxiliary 
-language (e.g. Esperanto), to create a fictional world (Dothraki, Klingon, or Quenya), to be logically rigorous. (e.g. Lojban), or to be simple 
-and easy to learn (e.g. Toki Pona). Some, like Ithkuil \cite{Ithkuil2024} are designed to express more profound thoughts briefly but clearly. 
-
+language (e.g. Esperanto), to create a fictional world (Dothraki, Klingon, or Quenya), to be logically rigorous. (e.g. Lojban), or simple 
+and easy to learn (e.g., Toki Pona). Some, like Ithkuil \cite{Ithkuil2024} are designed to express more profound thoughts briefly but clearly. 
 
 % The motivation: what does optimality mean? could we design a constructed language?
-Naturally, the next question that arises, is whether we could design a language that is more optimal or efficient than natural languages.
-This question itself is more challenging than it seems. What does it mean for a language to be optimal? Is it efficiency in terms of information theory?
+Naturally, the next question that arises is whether we could design a language that is more optimal or efficient than natural languages.
+This question itself is more challenging than it seems. What does it mean for a language to be optimal? Is it efficient in terms of information theory?
 Is it ease of learning? Is it expressiveness? Is it the ability to convey complex thoughts? Is it the ability to be understood in even the most 
-noisy environments? In addition, how do we measure these properties? Therefore the first motivation of this thesis is to explore what it means 
-for a language to be optimal, and whether we can design a language that is more optimal than natural languages. To develop this language, one 
+noisy environments? In addition, how do we measure these properties? Therefore, the first motivation of this thesis is to explore what it means 
+for a language to be optimal and whether we can design a language that is more optimal than natural languages. To develop this language, one 
 must define its phonology, orthography, morphology, syntax, and vocabulary.
 
 % Motivation: vague idea about how LLMs might have insights into this problem, 
 The second motivation of this thesis is to explore whether Large Language Models (LLMs) can provide insights into this problem. In the process 
-of learning, Large Language Models and Machine learning models in general learn to encode a wide variety of features. These features potentially encode
-information about the structure of language and facts about our world. Trained on a large and varied corpus, they could potentially encode information
-about nearly everything humans discuss. Thus, it is possible that LLMs could provide insights that could help us design a more optimal language.
+of learning, Large Language Models and Machine learning models in general, learn to encode various features. These features potentially encode
+information about the structure of language itself, and facts about our world. Trained on a large and varied corpus, they could encode information
+about nearly everything humans communicate about. Thus, it is possible that LLMs could provide insights that could help us design a more optimal language.
 
 To obtain relevant information from these models, we must use techniques that make the working of these models more interpretable.
 Given the large number of parameters in these models, it is difficult to interpret the learned features. In addition, neurons in the model often 
-activate in  response to multiple contexts, making it even harder to create human understandable explanations \cite{elhage2022superposition}.  
+activate in response to multiple contexts, making it even harder to create human-understandable explanations \cite{elhage2022superposition}.  
 This is known as \textit{polysemanticity}, and the hypothesized reason is \textit{superposition} of features, where networks represent more features
 than directions in the parameter space. Thus, we must use tools like Sparse Autoencoders \cite{cunninghamSparseAutoencodersFind2023} to 
-disentangle these dense features, and use techniques like Autointerpretability \cite{billsLanguageModelsCan} to provide explanations at scale.
+disentangle these dense features and use techniques like Autointerpretability \cite{billsLanguageModelsCan} to provide explanations at scale.
 
 % section on LLMs and their history. History of Interpretability and MechInterp.
 
-% A brief summary of linguistics, corpus linguistics, computational linguistics etc.
+% A brief summary of linguistics, corpus linguistics, computational linguistics, etc.
 
 % Concluding Paragraph: bring together the idea of conlangs, LLMs and the research question.
+
+To test these hypotheses, we setup a modular pipeline for generating constructed languages. The code for this pipeline is available at 
+\url{https://github.com/fortuinlab/conlang}. 

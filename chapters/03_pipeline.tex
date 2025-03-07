@@ -10,7 +10,11 @@ all the features of a language. This class is piped through the modules, and eac
 results \texttt{dict} which is stored as a \texttt{JSON} file after the run. If the module requires a certain element of the description to be 
 generated beforehand, it check for those features and can throw an error if they are not present.
 
-However, we found ourselves using more or less similar modules in most of our experiments. We have identified the following modules that are common to most
+A pipeline can be setup by subclassing the \texttt{Pipeline} class, which takes care of executing the modules and saving the results. Each module of the pipeline 
+is a subclass of the \texttt{Module} class, which has an \texttt{execute} method that takes a \texttt{LanguageDescription} object and other optional arguments,
+and returns the modified \texttt{LanguageDescription} object and other optional results.
+
+During the course of development, we found ourselves using more or less similar modules in most of our experiments. We have identified the following modules that are common to most
 setups:
 
 \subsection{Phonetics Modules}
@@ -36,3 +40,11 @@ The goal of the Vocabulary Module is to generate the vocabulary of the language.
 holds the list of \texttt{VocabularyEntry} objects. Each \texttt{VocabularyEntry} object contains the word in the constructed language, its translation,
 and its definition in english. 
 A source words list is also part of each entry, to facilitate easy search for translation purposes. The class can also hold embeddings for each word, which could be also used for downstream tasks.
+
+\subsection{Translation Modules}
+Once the language description is generated, we use a translation module to translate some text corpora represented by \texttt{AbstractSourceText}.
+The module translates the source text paragraph by paragraph, using an LLM model.
+
+\subsection{Evaluation Modules}
+The Evaluators are a separate class that does not inherit from the abstract \texttt{Module} class. They inherit the \texttt{Evaluator} class, which
+creates an evaluations folder inside the results folder, to store the results of the evaluations. 

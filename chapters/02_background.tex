@@ -4,6 +4,7 @@
 \section{Linguistics}
 Linguistics, the scientific study of languages is a broad and complex field encompassing various subfields. Although a comprehensive summary 
 of Linguistics is beyond the scope of this thesis, we will briefly discuss some of the subfields and key concepts that are relevant to our work.
+\cite{trask2007language} provides a glossary of linguistic terms that can be useful for readers interested in a more detailed overview of the field.
 
 \subsection{Phonetics and Phonology}
 \textbf{Phonetics} is the study of the physical sounds of human speech, their production, transmission and reception. \cite{trask2007language}. The International Phonetic Alphabet (IPA) is a standardized system of phonetic notation that represents the sounds of spoken language. The system
@@ -11,7 +12,8 @@ is based on the assumption that speech can be represented partly as a sequence o
 In addition, the IPA also includes symbols for suprasegmental features such as stress and intonation. The full IPA Chart (reproduced here in 
 \ref{fig:ipa_chart}) shows all the symbols and diacritics used to represent sounds in the IPA. Sounds and words can be transcribed in IPA 
 using \textipa{[ ]} brackets. For example, the sounds for the word \textit{this} can be transcribed as \textipa{[DIs]}. The IPA helps linguistics
-transcribe sounds in a language-agnostic way, allowing them to compare sounds across languages.
+transcribe sounds in a language-agnostic way, allowing them to compare sounds across languages. The IPA Handbook \cite{handbookIPA1999} provides
+a comprehensive guide to the use of the IPA.
 
 \textbf{Phonology} is the study of the sound systems of languages, including the patterns of sounds and the rules that govern their distribution. \cite{trask2007language}.
 The key difference in the disciplines is driven by the concept of a \textit{phoneme}. A phoneme is an abstract unit of sound that can distinguished
@@ -35,9 +37,7 @@ the sequence \textipa{/bl/} is permissible at the beginning of a word (e.g. \tex
 modify loadwords to fit their own phonotactic constraints. For example, the English word \textit{beer} is borrowed into Japanese as \textit{biru}.
 
 
-\subsection{Grammar}
-
-\subsubsection{Morphology}
+\subsection{Morphology}
 \textbf{Morphology} is the study of the structure of words and the rules that govern the formation of words in a language \cite{trask2007language}.
 Most studies of morphology focus on the concept of a \textit{morpheme}, the smallest unit of meaning in a language. For example, the word \textit{unhappiness}
 can be broken down into three morphemes: \textit{un-}, \textit{happy} and \textit{-ness}. Morphemes can be free or bound. Free morphemes can stand
@@ -48,19 +48,167 @@ modification of a word for grammatical purposes such as tense, aspect, mood, num
 \textit{walked}, \textit{walks}, \textit{walking}, etc. \textbf{Derivational morphology} involves the creation of new words from existing words.
 For example, the English noun \textit{happiness} can be derived from the adjective \textit{happiness} by adding the suffix \textit{-ness}.
 
-\subsubsection{Syntax}
-\textbf{Syntax} is the study of the structure of sentences and the rules that govern the formation of sentences in a language \cite{trask2007language}.
+\subsubsection{Lexicon}
+The \textbf{lexicon} of a language is the vocabulary of a language, i.e. the total set of words available for a speaker. It is better to consider
+the lexicon, not as a list of word, but a set of lexical resources including morphemes, and processes to construct words from these resources \cite{trask2007language}.
 
-The words that are used in a language, are divided into several \textit{word classes}, or \textit{parts of speech}. The most common parts of speech
-are \textit{nouns}, \textit{verbs}, \textit{adjectives}, and \textit{adverbs}. Sometimes, parts of speech exhibit multiple forms, used in different
-grammatical circumstances. Each of these forms indicate a certain \textit{grammatical category} or \textit{feature}. For example, in English, verbs
-can be inflected for tense, aspect, mood, person, number, etc.
+\subsection{Grammar}
+\textbf{Grammar} is the set of rules that govern the structure of sentences in a language. Traditional Grammar describes certain terms for basic
+grammatical components such as \textit{article}, \textit{adjective}, \textit{noun}, etc known as \textit{parts of speech} \cite{yule2020StudyLanguage}.
+
+\begin{enumerate}
+    \item \textbf{Nouns} are words that refer to people, places, things, or abstract ideas, as if they were objects. For example, \textit{cat}, \textit{house}, and \textit{happiness} are all nouns.
+    \item \textbf{Verbs} are words that express the actions or states of nouns. For example, \textit{run}, \textit{is}, and \textit{happen} are all verbs.
+    \item \textbf{Adjectives} are words that describe or modify nouns. For example, \textit{happy}, \textit{red}, and \textit{tall} are all adjectives.
+    \item \textbf{Adverbs} are words that describe or modify verbs, adjectives, or other adverbs. For example, \textit{really}, \textit{very}, and \textit{well} are all adverbs.
+    \item \textbf{Articles} are words that define a noun as specific or unspecific. For example, \textit{the} is a definite article, while \textit{a} and \textit{an} are indefinite articles.
+    \item \textbf{Pronouns} are words that take the place of noun phrases, typically when they are already known. For example, \textit{he}, \textit{she}, and \textit{they} are all pronouns.
+    \item \textbf{Prepositions} are words that show the relationship between a noun or pronoun and other words in a sentence. For example, \textit{in}, \textit{on}, and \textit{at} are all prepositions.
+    \item \textbf{Conjunctions} are words that connect words, phrases, or clauses, and indicate the relationship between them. For example, \textit{and}, \textit{but}, and \textit{or} are all conjunctions.
+\end{enumerate}
+
+Sometimes, parts of speech exhibit multiple forms, used in different grammatical circumstances. Each of these forms indicate a certain \textit{grammatical category} 
+or \textit{feature}. For example, in English, verbs can be inflected for tense, aspect, mood, person, number, etc. This is known as \textit{agreement}.
 
 A language may choose to explicitly mark these features, i.e. \textit{grammaticalize} them \cite{rosenfelder2010language}. All features can be
 expressed in any language (perhaps by adding explicit information), but every language chooses to express only a subset of these features grammatically.
 
+\subsection{Grammatical Features}
+Grammatical features or categories provide some extra information about the sentence, and different parts of speech may exhibit different forms
+to indicate these features. we will briefly discuss some of the most common grammatical features.
+
+\subsubsection{Grammatical Gender}
+In many languages, nouns are often classified into different classes, and different parts of speech will often agree with the specific class. These classes
+are called Grammatical Gender, and it often need not have anything to do with sex or gender. Languages with gender may only have 2 gender classes, but can also
+have many more. The gender assignment of many objects are often arbitrary. 
+
+\subsubsection{Grammatical Number}
+\textbf{Grammatical Number} is a grammatical category that expresses count distinctions. The most common distinction is between singular(one) and plural(many), but
+some languages also have dual(two), trial(three), paucal(few), and other forms. For example, in English, the noun \textit{cat} is singular, while \textit{cats} is plural.
+
+\subsubsection{Grammatical Case}
+The \textbf{Grammatical Case} indicates one or more functions of a noun or noun phrase in a sentence. Many different cases have been identified in the worlds languages, such as
+
+\begin{enumerate}
+    \item \textbf{Nominative} case, which indicates the subject of a verb.
+    \item \textbf{Accusative} case, which indicates the direct object of a verb.
+    \item \textbf{Dative} case, which indicates the indirect object of a verb.
+    \item \textbf{Genitive} case, which indicates possession.
+    \item \textbf{Locative} case, which indicates location.
+    \item \textbf{Instrumental} case, which indicates the means by which an action is performed.
+\end{enumerate}
+These descriptions are not exact, and precise distinctions can heavily depend on the specific language.
+
+\subsubsection{Tense, Aspect and Mood}
+
+% TODO: add diagrams describing the time status of different tenses and aspects with timeline
+Tense, aspect and modality all provide some kind of information that is temporal in nature, or tell us about the status of the action or verb. 
+They are often grouped together as \textbf{TAM} (Tense, Aspect, Modality). 
+
+\textbf{Tense} is a grammatical category that indicates the time at which an action takes place. The most common tenses are past, present, and future. 
+For example, in English, the verb \textit{walk} can be inflected to \textit{walked} (past), \textit{walks} (present), and \textit{will walk} (future).
+
+% TODO: list out common tenses
+
+\textbf{Aspect} is a grammatical category that indicates the temporal structure of the action or event described by a verb. It indicates for example, 
+whether the action is bounded, and unitary, or continuous or habitual. For example, in English, the sentences \textit{She danced} and \textit{She was dancing}
+have different aspects. They are both in the past tense, but the first sentence indicates a \textit{perfective}, or completed aspect, while 
+the second sentence indicates an \textit{continuous}, or \textit{progressive} aspect.
+% TODO: list out common aspects
+
+\textbf{Modality} is a grammatical category that indicates the speaker's attitude towards the action or event described by a verb. Modern linguists 
+usually associate it with the expression of obligation, permission, prohibition, necessity, possibility and ability \cite{trask2007language}. In English,
+modality is primarily expressed using Auxiliary verbs, such as \textit{can}, \textit{may}, \textit{must}, etc. For example, the sentence \textit{He can dance} indicates ability, while
+the sentence \textit{He must dance} indicates obligation.
+
+% TODO: categories and types of modality
+
+\subsubsection{Grammatical Person}
+\textbf{Grammatical Person} is a grammatical category that indicates the different relationships between the speaker, the listener, and others in the discourse.
+Languages typically indicate this relationship using pronouns. The most common distinctions are between first person (the speaker), second person (the listener), and third person (others).
+For example, in English, the pronouns \textit{I} (first person), \textit{you} (second person), and \textit{he/she/they/it} (third person) indicate the grammatical person.
+
+Some languages also have a distinction in \textit{clusivity} for the first person plural pronoun. The inclusive form includes the listener, while the exclusive form does not.
+For example in Malayalam, the pronoun \textit{nammal} includes the listener, while the pronoun \textit{njangal} does not.
+
+\subsection{Syntax}
+\textbf{Syntax} is the study of the structure of sentences and the rules that govern the formation of sentences in a language \cite{trask2007language}.
+The goal of Syntactic Analysis is to have a finite set of rules that could be used to generate potentially infinite sentences. This set of rules is known as 
+a \textbf{Generative Grammar} \cite{yule2020StudyLanguage}. We move from the concepts of Nouns to Noun Phrases, and Verbs to Verb Phrases, and so on.
+
+A Noun Phrase is a phrase that is interchangeable with a noun. Take for example the sentence:
+
+\begin{center}
+    \underline{\hspace{2cm}} bought a new car.
+\end{center}
+
+The cloze in the sentence could be filled with a noun, like "John", but also by say , "The young man".
+
+With these definitions in mind, we could define a sentence as a Noun Phrase followed by a Verb Phrase. We can also have production rules for 
+Noun Phrases, Verb Phrases, and so on. For example, a Noun Phrase could be defined as a determiner followed by an adjective followed by a noun.
+With these rules, known as \textbf{Phrase Structure Rules}, we can generate a tree structure for a sentence, known as a \textbf{Parse Tree} \cite{jm3}.
+
+%  TODO: Figure for Parse tree example + Description. see https://tex.stackexchange.com/questions/111196/how-to-create-syntactic-trees-and-align-them-in-latex
+
+
+
 
 \section{Constructed Languages}
+Constructed Languages are languages that have not naturally evolved, but were artifically constructed. Some conlangs are created for fictional word-building,
+like \textit{Quenya} and \textit{Sindarin} from J.R.R. Tolkien's Middle-Earth, or \textit{Dothraki} and \textit{High Valyrian} from George R.R. Martin's A Song of Ice and Fire.
 
-\section{Interpretability of Large Language Models}
+\subsection{The Process of Language Creation}
+% TODO: add info from peterson and language construction kit + links to resources.
+
+\section{Evaluation}
+\subsection{Evaluation of Machine Translations}
+Evaluation of machine translations is a complex task, and is essential for assessing the accuracy and fluency of the translations. Human evaluations
+are often expensive and time-consuming \cite{papineniBLEUMethodAutomatic2002}, and are not always feasible for large datasets. As a result, many researchers 
+have developed automatic evaluation metrics to assess the quality of machine translations. Classic methods like BLEU \cite{papineniBLEUMethodAutomatic2002} measures
+the similarity between the machine translation and a reference translation by comparing n-grams. ROUGE \cite{linROUGEEvaluationAutomatic2004} is another popular metric that
+measures recall as opposed to precision. It is often used for evaluating the quality of summaries, but can also be used for machine translation evaluation. METEOR \cite{banerjeeMETEORAutomaticMetric2005} 
+improves upon such methods by for example, considering synonyms and stemming. 
+
+We use these machine translation evaluation metrics by comparing the detranslated text with the original text. Although the actual values for these metrics would be
+dependent on the model and its parameters, it would still be useful to compare the performance between different generated conlangs. 
+
+\section{Automatic Evaluation Metrics}
+
+\subsection{BLEU: Bilingual Evaluation Understudy} 
+\textbf{BLEU} (Bilingual Evaluation Understudy) \cite{papineniBLEUMethodAutomatic2002} is one of the most widely used automatic metrics for evaluating machine translations. It measures the similarity between a machine translations and reference translations by analyzing their \textit{n-gram} overlap. The BLEU score is given by:
+
+\begin{equation}
+\text{BLEU} = \text{BP} \cdot \exp\left(\sum_{n=1}^{N} w_n \log p_n \right)
+\end{equation}
+
+where  $p_n$ is the geometric average of the precision of n-grams,  $w_n$ are weights assigned to different n-grams, and  $\text{BP}$ (the brevity penalty) penalizes short translations to prevent artificially high scores. BLEU focuses primarily on precision but does not consider recall or semantic meaning.
+
+\subsection{ROUGE: Recall-Oriented Understudy for Gisting Evaluation}% TODO: REWRITE!!
+ROUGE (Recall-Oriented Understudy for Gisting Evaluation) \cite{linROUGEPackageAutomatic2004} is a set of metrics primarily used for text summarization but also applicable to machine translation. Unlike BLEU, which emphasizes precision, ROUGE focuses on recall—how much of the reference translation appears in the generated text. The most common variant, ROUGE-N, computes the recall of n-gram matches:
+
+\begin{equation}
+\text{ROUGE-N} = \frac{\sum_{s \in \text{ref}} \sum_{n-gram \in s} \text{count}_{match}(n-gram)}{\sum_{s \in \text{ref}} \sum_{n-gram \in s} \text{count}(n-gram)}
+\end{equation}
+
+Another popular variant, ROUGE-L, measures the longest common subsequence (LCS) between the reference and candidate translations, capturing fluency better. ROUGE is especially useful for evaluating translations with different word orders but similar meanings.
+
+\subsection{METEOR: Metric for Evaluation of Translation with Explicit ORdering}% TODO: REWRITE!!
+METEOR (Metric for Evaluation of Translation with Explicit ORdering) was designed to address some of BLEU's limitations by incorporating recall, stemming, synonym matching, and word order penalties. METEOR aligns words between candidate and reference translations using exact matches, stemmed matches, and synonym matches. The metric is computed as:
+
+\begin{equation}
+METEOR = F_{mean} \cdot (1 - Penalty)
+\end{equation}
+
+where \( F_{mean} \) is the harmonic mean of precision and recall, and the penalty reduces the score for word order mismatches. Due to its ability to consider semantic variations, METEOR often correlates better with human judgments than BLEU.
+
+These three metrics, though widely used, each have their strengths and weaknesses. BLEU remains a benchmark due to its efficiency, ROUGE excels in recall-based evaluation, and METEOR provides a more comprehensive assessment by considering meaning and word order.
+
+
+\subsection{Information Theoretic Evaluation of Languages}
+
+
+\section{Language Models and Embeddings}
+
+\subsection{Clustering of Embeddings}
+
 

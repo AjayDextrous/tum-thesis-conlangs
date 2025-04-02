@@ -7,7 +7,8 @@ of Linguistics is beyond the scope of this thesis, we will briefly discuss some 
 \cite{trask2007language} provides a glossary of linguistic terms that can be useful for readers interested in a more detailed overview of the field.
 
 \subsection{Phonetics and Phonology}
-\textbf{Phonetics} is the study of the physical sounds of human speech, their production, transmission and reception. \cite{trask2007language}. The International Phonetic Alphabet (IPA) is a standardized system of phonetic notation that represents the sounds of spoken language. The system
+\textbf{Phonetics} is the study of the physical sounds of human speech, their production, transmission and reception. \cite{trask2007language}. 
+The International Phonetic Alphabet (IPA) is a standardized system of phonetic notation that represents the sounds of spoken language. The system
 is based on the assumption that speech can be represented partly as a sequence of discrete sounds or \textit{segments} \cite{handbookIPA1999}. 
 In addition, the IPA also includes symbols for suprasegmental features such as stress and intonation. The full IPA Chart (reproduced here in 
 \ref{fig:ipa_chart}) shows all the symbols and diacritics used to represent sounds in the IPA. Sounds and words can be transcribed in IPA 
@@ -165,43 +166,46 @@ like \textit{Quenya} and \textit{Sindarin} from J.R.R. Tolkien's Middle-Earth, o
 Evaluation of machine translations is a complex task, and is essential for assessing the accuracy and fluency of the translations. Human evaluations
 are often expensive and time-consuming \cite{papineniBLEUMethodAutomatic2002}, and are not always feasible for large datasets. As a result, many researchers 
 have developed automatic evaluation metrics to assess the quality of machine translations. Classic methods like BLEU \cite{papineniBLEUMethodAutomatic2002} measures
-the similarity between the machine translation and a reference translation by comparing n-grams. ROUGE \cite{linROUGEEvaluationAutomatic2004} is another popular metric that
+the similarity between the machine translation and a reference translation by comparing n-grams. ROUGE \cite{linROUGEPackageAutomatic2004} is another popular metric that
 measures recall as opposed to precision. It is often used for evaluating the quality of summaries, but can also be used for machine translation evaluation. METEOR \cite{banerjeeMETEORAutomaticMetric2005} 
 improves upon such methods by for example, considering synonyms and stemming. 
 
 We use these machine translation evaluation metrics by comparing the detranslated text with the original text. Although the actual values for these metrics would be
 dependent on the model and its parameters, it would still be useful to compare the performance between different generated conlangs. 
 
-\section{Automatic Evaluation Metrics}
-
-\subsection{BLEU: Bilingual Evaluation Understudy} 
-\textbf{BLEU} (Bilingual Evaluation Understudy) \cite{papineniBLEUMethodAutomatic2002} is one of the most widely used automatic metrics for evaluating machine translations. It measures the similarity between a machine translations and reference translations by analyzing their \textit{n-gram} overlap. The BLEU score is given by:
+\subsubsection{BLEU: Bilingual Evaluation Understudy} 
+\textbf{BLEU} (Bilingual Evaluation Understudy) \cite{papineniBLEUMethodAutomatic2002} is one of the most widely used automatic metrics for 
+evaluating machine translations. It measures the similarity between a machine translations and reference translations by analyzing their \textit{n-gram} overlap. The BLEU score is given by:
 
 \begin{equation}
 \text{BLEU} = \text{BP} \cdot \exp\left(\sum_{n=1}^{N} w_n \log p_n \right)
 \end{equation}
 
-where  $p_n$ is the geometric average of the precision of n-grams,  $w_n$ are weights assigned to different n-grams, and  $\text{BP}$ (the brevity penalty) penalizes short translations to prevent artificially high scores. BLEU focuses primarily on precision but does not consider recall or semantic meaning.
+where  $p_n$ is the geometric average of the precision of n-grams,  $w_n$ are weights assigned to different n-grams, and  $\text{BP}$ (the brevity penalty) 
+penalizes short translations to prevent artificially high scores. BLEU focuses primarily on precision but does not consider recall or semantic meaning.
 
-\subsection{ROUGE: Recall-Oriented Understudy for Gisting Evaluation}% TODO: REWRITE!!
-ROUGE (Recall-Oriented Understudy for Gisting Evaluation) \cite{linROUGEPackageAutomatic2004} is a set of metrics primarily used for text summarization but also applicable to machine translation. Unlike BLEU, which emphasizes precision, ROUGE focuses on recall—how much of the reference translation appears in the generated text. The most common variant, ROUGE-N, computes the recall of n-gram matches:
-
-\begin{equation}
-\text{ROUGE-N} = \frac{\sum_{s \in \text{ref}} \sum_{n-gram \in s} \text{count}_{match}(n-gram)}{\sum_{s \in \text{ref}} \sum_{n-gram \in s} \text{count}(n-gram)}
-\end{equation}
-
-Another popular variant, ROUGE-L, measures the longest common subsequence (LCS) between the reference and candidate translations, capturing fluency better. ROUGE is especially useful for evaluating translations with different word orders but similar meanings.
-
-\subsection{METEOR: Metric for Evaluation of Translation with Explicit ORdering}% TODO: REWRITE!!
-METEOR (Metric for Evaluation of Translation with Explicit ORdering) was designed to address some of BLEU's limitations by incorporating recall, stemming, synonym matching, and word order penalties. METEOR aligns words between candidate and reference translations using exact matches, stemmed matches, and synonym matches. The metric is computed as:
+\subsubsection{ROUGE: Recall-Oriented Understudy for Gisting Evaluation}
+ROUGE (Recall-Oriented Understudy for Gisting Evaluation) \cite{linROUGEPackageAutomatic2004} is a set of metrics primarily used for text summarization but 
+also applicable to machine translation. Unlike BLEU, which focuses on precision, ROUGE focuses on recall, i.e. how much of the reference translation appears in the generated text. 
+The most common variant, ROUGE-N, computes the recall of n-gram matches:
 
 \begin{equation}
-METEOR = F_{mean} \cdot (1 - Penalty)
+\text{ROUGE-N} = \frac{\sum_{s \in \text{ref}} \sum_{gram_n \in s} \text{count}_{match}(gram_n)}{\sum_{s \in \text{ref}} \sum_{gram_n \in s} \text{count}(gram_n)}
 \end{equation}
 
-where \( F_{mean} \) is the harmonic mean of precision and recall, and the penalty reduces the score for word order mismatches. Due to its ability to consider semantic variations, METEOR often correlates better with human judgments than BLEU.
+Another variant, ROUGE-L, measures the longest common subsequence (LCS) between the reference and candidate translations, capturing 
+fluency better. ROUGE is especially useful for evaluating translations with different word orders but similar meanings.
 
-These three metrics, though widely used, each have their strengths and weaknesses. BLEU remains a benchmark due to its efficiency, ROUGE excels in recall-based evaluation, and METEOR provides a more comprehensive assessment by considering meaning and word order.
+\subsubsection{METEOR: Metric for Evaluation of Translation with Explicit ORdering}
+METEOR (Metric for Evaluation of Translation with Explicit ORdering) addresses some of BLEU's limitations by incorporating recall, stemming, synonym matching, and word order penalties. 
+METEOR aligns words between candidate and reference translations using exact matches, stemmed matches, and synonym matches. The metric is computed as:
+
+\begin{equation}
+\text{METEOR} = F_{mean} \cdot (1 - Penalty)
+\end{equation}
+
+where $ F_{mean} $ is the harmonic mean of precision and recall, and $\text{Penalty}$ reduces the score for word order mismatches. METEOR can correlate better with human judgments than BLEU 
+due to its ability to consider semantic variations.
 
 
 \subsection{Information Theoretic Evaluation of Languages}

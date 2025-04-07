@@ -1,0 +1,60 @@
+\chapter{Methodology}\label{chapter:methodology}
+
+% Explain how we generate the languages, and how we evaluate them, ablation study setup. List out the different things we wanted to compare.
+% Everything except the pipeline implementation goes here.
+
+\section{Methodology}
+
+This chapter outlines the methodological approach we used to construct and evaluate constructed languages. The methodology follows the step 
+by step approach from existing literature on language construction \cite{petersonArtLanguageInvention2015,rosenfelder2010language}. The language 
+description contains the phonemic inventory, phonotactic rules, grammar and vocabulary of the new language. We also generate translation of an
+existing text, which can then be used for evaluation.
+
+\subsection{Research Design}
+
+We adopt a modular, computational experimental design. The overall aim is to investigate whether LLMs can be systematically guided 
+to generate conlangs that exhibit properties found in natural human languages. To this end, a pipeline-based framework was developed, 
+consisting of discrete modules for phonology, morphology, syntax, and vocabulary generation, followed by a suite of evaluation metrics. 
+This modular design allows for targeted ablative analysis of each linguistic subsystem. This would also allow further extensions to the pipeline 
+in the future.
+
+\subsection{Modular Language Generation Pipeline}
+The constructed language is generated through a modular pipeline, where each module can modify and append to the previous module's output.
+The design purposefully avoids requiring a strict ordering of modules, and each module can specify what it requires from the previous modules.
+Each module represents an independent variable in the generation process, which are manipulated to compare and contrast the generated languages, and 
+answer the following research questions:
+
+\begin{enumerate}
+	\item How does the number of phonemes in the phonemic inventory affect the generated language?
+	\item How do the phonotactic rules affect the generated language?
+	\item How do different grammatical structures affect the generated language?
+	\item How does different vocabulary generation methods affect the generated language?
+\end{enumerate}
+
+
+\subsection{Evaluation Methodology}
+Once the linguistic modules generate a language, we can run the evaluator modules to benchmark the results. Each evaluator module can run its evaluations
+and the results can be stored along with the language in the results. In particular, we run the following evaluations:
+
+\subsubsection{Information Loss Metrics}
+The Information loss metrics evaluate how well the generated language can retain information from the original text. The different benchmarks we use for this metric are:
+
+\begin{enumerate}
+	\item \textbf{Machine Translation Scores}: We translate a text from English to the generated language and back to English, and evaluate the translation score using BLEU \cite{papineniBLEUMethodAutomatic2002}, ROUGE \cite{linROUGEPackageAutomatic2004} and METEOR \cite{banerjeeMETEORAutomaticMetric2005}. 
+	The translation is done using a pre-trained LLM, and the scores are calculated using the generated text.
+	\item \textbf{Reading Comprehension Scores}: We evaluate the Reading Comprehension score of the generated text using a pre-trained LLM. 
+	The LLM is given a passage in both English and the generated language and a set of questions, and it is evaluated on how well it can answer the questions. 
+	The score is calculated as the percentage of questions answered correctly.
+\end{enumerate}
+
+\subsubsection{Simplicity Metrics}
+The simplicity metrics evaluate how simple the generated language is.
+
+\begin{enumerate}
+	\item Vocabulary Size
+	\item Phonemic Inventory
+	\item Syllable count
+\end{enumerate}
+
+
+

@@ -209,6 +209,66 @@ due to its ability to consider semantic variations.
 
 
 \subsection{Information Theoretic Evaluation of Languages}
+Natural language, being a means of communication consists primarily of information transmission \cite{debowskiInformationTheoryLanguage2020}. There have
+been several attempts to quantify the information content of a language using information theory. Shannon \cite{shannonPredictionEntropyPrinted1951} introduced a new
+method of estimating the entropy and in turn the redundancy of a language. Entropy in a sense measures the average amount of information for each letter in a text.
+Natural language however, is not a minimal length source code. It operates under the constraints of incremental language processing, which enforces
+systematicity, compositionality and concatenation as means of combination  \cite{futrellInformationTheoryBridge2022}. Redundancy often serves another
+important purpose, which is to help in error correction and understanding in noisy environments \cite{gibsonHowEfficiencyShapes2019}.
+
+\subsection{Reading Comprehension Evaluation of Language Models}
+One of the primary goals of Natural Language Processing is teaching computers to read and understand the meaning of text. Reading comprehension 
+thus presents itself as a suitable benchmark to evaluate a model's language understanding ability \cite{zengSurveyMachineReading2020}.  The goal 
+of a reading comprehension task is to require the model to read one or more text passages and then answers questions about them. 
+
+MRC tasks are generally classified into four categories. 
+\begin{enumerate}
+    \item \textbf{Cloze Style} tasks require the model to fill in the blanks in a passage. 
+    \item \textbf{Multiple-Choice} tasks require the model to select the correct answer from a set of options.
+    \item \textbf{Span Prediction} tasks require the model to extract a span of text from the passage that answers the question.
+    \item \textbf{Freeform} tasks require the model to generate a free-form answer to the question.
+\end{enumerate}
+
+In our work, we decided to use Multiple-Choice tasks as a proxy for evaluating the constructed language. By evaluating the dataset on a model,
+first with the original passage and then with the detranslated passage, we get a proxy measure for the information loss in the translation process.
+Although some of this loss may be due to the model's inability to understand the constructed language, we can still use this for comparative 
+analysis of different constructed languages.
+
+\subsubsection{RACE-C Dataset}
+The RACE-C Dataset \cite{liangNewMultichoiceReading2019} is a large-scale reading comprehension dataset based on college english exams from China.
+It improves upon the previous RACE dataset \cite{laiRACELargescaleReAding2017} by providing a more challenging set of questions and answers. 
+It consists of 4275 passages and 14122 questions. Figure~\ref{fig:race-c-sample} shows a sample article and question from the dataset.
+
+%  Figure showing a random question from Race-C
+\begin{figure}[htbp]
+	\centering
+	\begin{tcolorbox}[colback=gray!5!white, colframe=black]
+		\small
+		People have been painting pictures for at least 30,000 years. The earliest pictures were painted by people who hunted animals. They used to paint pictures of the animals they wanted to catch and kill. Pictures of this kind have been found on the walls of caves in France and Spain. No one knows why they were painted there. Perhaps the painters thought that their pictures would help them to catch these animals. Or perhaps human beings have always wanted to tell stories in pictures.
+		
+		.
+		.
+		.
+		
+		These days, we can write down a story, or record information, without using pictures. But we still need pictures of all kinds: drawing, photographs, signs and diagrams. We find them everywhere: in books and newspapers, in the street, and on the walls of the places where we live and work. Pictures help us to understand and remember things more easily, and they can make a story much more interesting.
+		\vspace{0.5em}
+
+		\textbf{Question:} Pictures of animals were painted on the walls of caves in France and Spain because \underline{\hspace{3cm}}.
+		
+		\textbf{Options:}
+		\begin{itemize}
+			\item[A.] the hunters wanted to see the pictures
+			\item[B.] the painters were animal lovers
+			\item[C.] the painters wanted to show imagination
+			\item[D.] the pictures were thought to be helpful
+		\end{itemize}
+		
+		\textbf{Correct Answer:} D
+	\end{tcolorbox}
+	\caption{Sample Article and Comprehension Question from RACE-C}
+	\label{fig:race-c-sample}
+\end{figure}
+
 
 
 \section{Language Models and Embeddings}

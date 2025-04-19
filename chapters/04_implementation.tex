@@ -4,11 +4,18 @@ In this chapter, we will describe the pipeline we have set up to generate constr
 for Dependency Management. The pipeline is modular, to allow us to perform ablation studies.
 
 \section{Pipeline Overview}
-In order to generate constructed languages, we setup a modular pipeline. Although the codebase is flexible enough that we can reorder modules, as
-long as the input to any module has all the features required for its execution. This is facilitated by the \texttt{LanguageDescription} class, which contains
-all the features of a language. This class is piped through the modules, and each module can add or modify features of the language. Each module also generates a 
-results \texttt{dict} which is stored as a \texttt{JSON} file after the run. If the module requires a certain element of the description to be 
-generated beforehand, it check for those features and can throw an error if they are not present.
+In order to generate constructed languages, we setup a modular pipeline. Figure~\ref{fig:pipeline_structure} shows the Structure of a generation pipeline.
+Although we ended up having the modules in a specific order, the codebase is flexible enough that we can reorder modules, as long as the input to any module has all the features required for its execution. 
+This is facilitated by the \texttt{LanguageDescription} class, which contains all the features of a language. This class is piped through the modules,
+and each module can add or modify features of the language. Each module also generates a results \texttt{dict} which is stored as a \texttt{JSON} file after the run. 
+If the module requires a certain element of the description to be generated beforehand, it check for those features and can throw an error if they are not present.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/pipeline_structure.png}
+    \caption{The pipeline structure for generating constructed languages. The modules are run in order, and each module can add or modify features of the language.}
+    \label{fig:pipeline_structure}
+\end{figure}
 
 A pipeline can be setup by subclassing the \texttt{Pipeline} class, which takes care of executing the modules and saving the results. Each module of the pipeline 
 is a subclass of the \texttt{Module} class, which has an \texttt{execute} method that takes a \texttt{LanguageDescription} object and other optional arguments,
@@ -46,5 +53,13 @@ Once the language description is generated, we use a translation module to trans
 The module translates the source text paragraph by paragraph, using an LLM model.
 
 \subsection{Evaluation Modules}
-The Evaluators are a separate class that does not inherit from the abstract \texttt{Module} class. They inherit the \texttt{Evaluator} class, which
-creates an evaluations folder inside the results folder, to store the results of the evaluations. 
+Figure~\ref{fig:evaluations_structure} shows the setup for running evaluations on the generated languages. The Evaluators are a separate class 
+that does not inherit from the abstract \texttt{Module} class. They inherit the \texttt{Evaluator} class, which creates an evaluations folder 
+inside the results folder, to store the results of the evaluations. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/evaluations_structure.png}
+    \caption{The setup for running evaluations. Each evaluator stores the results in a folder inside the evaluations folder.}
+    \label{fig:evaluations_structure}
+\end{figure}

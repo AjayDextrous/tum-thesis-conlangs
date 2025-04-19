@@ -1,0 +1,17 @@
+\chapter{Author Contributions}\label{chapter:contributions}
+The codebase used for this thesis was developed by me in collaboration with Sara Visconti. I setup the initial repository and abstract classes
+for the modules and pipelines as well as the data classes for the language, which was then reviewed and refactored by Sara. Both of us modified
+or added to these modules and classes as needed based on experiment requirements. We also implemented specfiic modules for the experiments.
+
+\begin{enumerate}
+    \item \textbf{Phonemes}: I implemented the RandomPhonemeModule, MostCommonPhonemeModule and LanguagePhonemeModule. I also implemented the BasicAlphabetModule.
+    \item \textbf{Phonotactics}: I implemented the BasicPhonotacticsModule, CustomPhonotacticsModule and SyllableBuilderModule. 
+    \item \textbf{Grammar}: I implemented the BasicGrammarModule, BaselineAgglutinativeGrammarModule, and BaselineIsolatingGrammarModule. These modules built on top of Sara's Implementations of grammar features.
+    \item \textbf{Vocabulary}: I implemented the FixedVocabularyModule, FromSourceVocabularyModule, ClusterSimplifyVocabularyModule, ClusterTwoLevelVocabularyModule and ApproximatingVocabularyModule. I also used the Mapping modules implemented by Sara.
+    \item \textbf{Conlang}: I implemented the LLM based Source Text Translation Module.
+    \item \textbf{Evaluation}: I implemented the CompressionEvaluator, DetranslationEvaluator, HTML Summary Generator and RaceCEvaluator. I used Sara's Implementation of Zipfs Law Evaluator and BertEvaluator. Sara also added the various metrics to the DetranslationEvaluator.
+    \item \textbf{LLMs}: I implemented the LocalLLM and OpenAI implementation of the Remote LLM.
+\end{enumerate}
+
+We jointly developed the conceptual design and methodology. Other contributions from Sara Visconti are not reported here since they are not mentioned in this work.
+

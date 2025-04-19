@@ -31,6 +31,8 @@ answer the following research questions:
 	\item How does different vocabulary generation methods affect the generated language?
 \end{enumerate}
 
+% Explain the different types of ablation studies we can do with this pipeline.
+
 
 \subsection{Evaluation Methodology}
 Once the linguistic modules generate a language, we can run the evaluator modules to benchmark the results. Each evaluator module can run its evaluations
@@ -51,6 +53,7 @@ The Information loss metrics evaluate how well the generated language can retain
 The simplicity metrics evaluate how simple the generated language is.
 
 \begin{enumerate}
+	\item \textbf{BERT Fine-tuning}: We fine-tune a BERT like model on the generated language and evaluate the perplexity of the model.
 	\item Vocabulary Size
 	\item Phonemic Inventory
 	\item Syllable count

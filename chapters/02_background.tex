@@ -153,7 +153,6 @@ With these rules, known as \textbf{Phrase Structure Rules}, we can generate a tr
 
 
 
-
 \section{Constructed Languages}
 Constructed Languages are languages that have not naturally evolved, but were artifically constructed. Some conlangs are created for fictional word-building,
 like \textit{Quenya} and \textit{Sindarin} from J.R.R. Tolkien's Middle-Earth, or \textit{Dothraki} and \textit{High Valyrian} from George R.R. Martin's A Song of Ice and Fire.
@@ -270,9 +269,50 @@ It consists of 4275 passages and 14122 questions. Figure~\ref{fig:race-c-sample}
 \end{figure}
 
 
-
 \section{Language Models and Embeddings}
 
-\subsection{Clustering of Embeddings}
+\subsection{Representation Learning}
+The performance of NLP tasks, or any machine learning tasks in general is dependent on the choice of data representation \cite{bengioRepresentationLearningReview2014}.
+Classical methods often involve pain-stakingly hand-crafting features for each task, which is often not feasible for large datasets. \textbf{Representation learning}
+presents a way to automatically learn representations from the data, which can then be used for various downstream tasks. 
+
+Coming specifically to NLP, Words that occur in similar contexts tend to have similar meanings \cite{harrisDistributionalStructure1954}. This is 
+known as the \textbf{Distributional Hypothesis}. This hypothesis is the basis for \textbf{Vector Semantics}, the idea of representing words as a point
+in a high-dimensional space, where the distance between points represents the semantic similarity between words \cite{jm3}. These vectors are called 
+\textbf{embeddings}. This idea has been extended to subword units \cite{wuGooglesNeuralMachine2016}, sentences, and even larger pieces of text.
+
+Embeddings can be broadly classified into two categories: \textbf{static} and \textbf{contextual} embeddings. Static embeddings, such as 
+Word2Vec \cite{mikolovDistributedRepresentationsWords2013} or GloVe \cite{penningtonGloVeGlobalVectors2014} are fixed representations
+for each word, regardless of the context in which they appear. For example, the word \textit{bank} would have the same representation in both the sentences
+\textit{I went to the bank to deposit money} and \textit{The river bank was flooded}. Contextual embedding methods like ELMo \cite{petersDeepContextualizedWord2018}, BERT \cite{devlinBERTPretrainingDeep2019}, 
+and GPT-3 \cite{brownLanguageModelsAre2020}, on the other hand, create dynamic representations that depend on the context in which the word appears.
+
+% TODO: add figure showing example of word embeddings in 2D space.
+
+
+
+\subsection{Clustering Algorithms}
+
+\section{WordNet}
+In order to facilitate our pipeline with proper embeddings, We use WordNet \cite{millerWordNetLexicalDatabase1994}, a large lexical database of English.
+WordNet groups words into sets of synonyms called \textit{synsets}, and provides short definitions and usage examples. It also records the
+various semantic relations between these synonym sets.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/wordnet_single_synset.png}
+    \caption{WordNet synset for the word \textit{dog.n.01}.}
+    \label{fig:wordnet_single_synset}
+\end{figure}
+
+WordNet does not just interlink word forms, but specific senses of each word, which provides a more fine-grained representation of meaning.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/wordnet_multiple_synset.png}
+    \caption{Comparing two senses for the word \textit{bank}.}
+    \label{fig:wordnet_multiple_synset}
+\end{figure}
+
 
 

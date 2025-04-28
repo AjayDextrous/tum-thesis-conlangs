@@ -11,8 +11,8 @@ methodology. The chapter will also provide a brief outline of the structure of t
 % What are natural languages? Why do they exist? How do they develop?
 The goal of human language, much like any other human activity, is to aid our survival and propagation. It helps us to collaborate, compete and 
 influence others \cite{Levshina_2022}. Efficiency is another hallmark of all living beings, as a product of biological evolution \cite{haCostBenefit2010}. 
-Thus, languages form from a trade-off between expressiveness and efficiency. They tend to follow rules like Zipf's Law of Abbreviations CITE, 
-that words that are more frequently used tend to be shorter than sparsely used words. 
+Thus, languages form from a trade-off between expressiveness and efficiency. They tend to follow rules like Zipf's Law of Abbreviations \cite{piantadosiZipfsWordFrequency2014}, 
+which states that words that are more frequently used tend to be shorter than sparsely used words. 
 
 % Why is natural language not an optimal length code?
 This is, of course, an idealization. In the real world, speakers must talk in noisy environments, which means that languages often have redundancy
@@ -37,26 +37,27 @@ must define its phonology, orthography, morphology, syntax, and vocabulary.
 
 % Motivation: vague idea about how LLMs might have insights into this problem, 
 The second motivation of this thesis is to explore whether Large Language Models (LLMs) can provide insights into this problem. In the process 
-of learning, Large Language Models and Machine learning models in general, learn to encode various features. These features potentially encode
+of learning, Large Language Models and Machine Learning models in general, learn to encode various features. These features potentially encode
 information about the structure of language itself, and facts about our world. Trained on a large and varied corpus, they could encode information
 about nearly everything humans communicate about. Thus, it is possible that LLMs could provide insights that could help us design a more optimal language.
 
-% This is no longer part of the thesis. intro needs to be rewritten.
-% To obtain relevant information from these models, we must use techniques that make the working of these models more interpretable.
-% Given the large number of parameters in these models, it is difficult to interpret the learned features. In addition, neurons in the model often 
-% activate in response to multiple contexts, making it even harder to create human-understandable explanations \cite{elhage2022superposition}.  
-% This is known as \textit{polysemanticity}, and the hypothesized reason is \textit{superposition} of features, where networks represent more features
-% than directions in the parameter space. Thus, we must use tools like Sparse Autoencoders \cite{cunninghamSparseAutoencodersFind2023} to 
-% disentangle these dense features and use techniques like Autointerpretability \cite{billsLanguageModelsCan} to provide explanations at scale.
-
-% section on LLMs and their history. History of Interpretability and MechInterp.
-
+\section{Research Questions}
+The primary research questions of this thesis are:
+\begin{enumerate}
+    \item What are the metrics we can use to evaluate natural languages? 
+    \item Given these metrics, can we design an optimal constructed language?
+    \item What factors affect these metrics?
+    \item Can we use LLMs to generate a language that is more optimal than natural languages?
+\end{enumerate}
+% \item How do we measure the optimality of a language?
 % A brief summary of linguistics, corpus linguistics, computational linguistics, etc.
 
 % Concluding Paragraph: bring together the idea of conlangs, LLMs and the research question.
 
-To test these hypotheses, we setup a modular pipeline for generating constructed languages. The code for this pipeline is available at 
+To test these hypotheses, we setup a modular pipeline for generating and evaluating constructed languages. The code for this pipeline is available at 
 \url{https://github.com/fortuinlab/conlang}. 
+
+\section{Structure of the Thesis}
 
 This thesis is divided into 6 chapters. Chapter~\ref{chapter:background} introduces the necessary background information prerequisite for the main topic.
 It also details the various literature surveyed as part of the research.  Chapter~\ref{chapter:methodology} introduces the research methodology and the

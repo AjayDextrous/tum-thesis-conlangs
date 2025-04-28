@@ -156,8 +156,15 @@ With these rules, known as \textbf{Phrase Structure Rules}, we can generate a tr
 \section{Constructed Languages}
 Constructed Languages are languages that have not naturally evolved, but were artifically constructed. Some conlangs are created for fictional word-building,
 like \textit{Quenya} and \textit{Sindarin} from J.R.R. Tolkien's Middle-Earth, or \textit{Dothraki} and \textit{High Valyrian} from George R.R. Martin's A Song of Ice and Fire.
+Others are created for international communication, like \textit{Esperanto} and \textit{Volapük}. Some conlangs are created to be more logical or efficient, like \textit{Lojban} and \textit{Ithkuil}
+, or easy to learn, like \textit{Toki Pona}.
 
 \subsection{The Process of Language Creation}
+
+There has been a strong online community of language creators, called conlangers since the 1990s \cite{petersonArtLanguageInvention2015}. 
+The community has created a wealth of resources for language creation. In particular, \cite{petersonArtLanguageInvention2015} and \cite{rosenfelder2010language} provide 
+a comprehensive overview of the process of language creation. The process starts with the creation of a phonetic inventory, and phonotactics, which gives the language a distinct
+character. The next steps involve, word building, grammar, semantics and pragmatics \cite{rosenfelder2010language}.
 % TODO: add info from peterson and language construction kit + links to resources.
 
 \section{Evaluation}
@@ -290,8 +297,14 @@ and GPT-3 \cite{brownLanguageModelsAre2020}, on the other hand, create dynamic r
 % TODO: add figure showing example of word embeddings in 2D space.
 
 
-
 \subsection{Clustering Algorithms}
+\textbf{Clustering} can be defined as the task of grouping a set of objects in such a way that objects in the same group are more similar to 
+each other than to those in other groups \cite{jainDataClustering502010}. There have been several clustering algorithms proposed in the literature,
+including K-Means \cite{lloydLeastSquaresQuantization1982}, DBSCAN \cite{esterDensitybasedAlgorithmDiscovering1996}, and HDBSCAN \cite{campelloDensityBasedClusteringBased2013}.
+
+Clustering algorithms can be broadly classified into two categories: \textbf{partitional} and \textbf{hierarchical} clustering \cite{jainDataClustering502010}. 
+hierarchical clustering algorithms recursively find nested clusters, in either a bottoms-up or top-down fashion. Partitional clustering algorithms, on the other hand,
+find all clusters in a single pass and do not create a hierarchy.
 
 \section{WordNet}
 In order to facilitate our pipeline with proper embeddings, We use WordNet \cite{millerWordNetLexicalDatabase1994}, a large lexical database of English.

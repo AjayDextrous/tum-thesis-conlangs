@@ -54,10 +54,13 @@ The simplicity metrics evaluate how simple the generated language is.
 
 \begin{enumerate}
 	\item \textbf{BERT Fine-tuning}: We fine-tune a BERT like model on the generated language and evaluate the perplexity of the model.
-	\item Vocabulary Size
-	\item Phonemic Inventory
-	\item Syllable count
+	\item \textbf{Vocabulary Size}: The size of the vocabulary. 
+	\item \textbf{Phonemic Inventory}: The number of phonemes in the phonemic inventory.
+	\item \textbf{Phonotactic Complexity}: The complexity of the phonotactic rules.
 \end{enumerate}
+
+\subsubsection{Zipf's Law Metric}
+The Zipf's law evaluation evaluates how well the generated language follows Zipf's law. We calculate the Zipf's exponent for the generated text and compare it to the original text.
 
 
 

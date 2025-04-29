@@ -138,3 +138,7 @@ to access local LLMs via the Ollama Library. The Remote LLMs are accessed via th
 The primary models used for the experiments were \textit{deepseek-r1:14b} and OpenAI's \textit{gpt-4o}.  
 
 For the embedding models, we primarily used the \textit{all-MiniLM-L6-v2} model from HuggingFace.
+
+\subsection{Clustering}
+We used the \textit{AgglomerativeClustering} class from the \textit{sklearn} library for clustering the vocabulary, which we noticed gave the best 
+results heuristically.

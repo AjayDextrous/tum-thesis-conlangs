@@ -1,3 +1,4 @@
+% !TeX document-id = {10b3ccb1-3544-4c78-abc6-ec60d098d2a0}
 % !BIB TS-program = biber
 
 \RequirePackage[l2tabu,orthodox]{nag}
@@ -12,15 +13,15 @@
 % TODO: change thesis information
 \newcommand*{\getUniversity}{Technische Universität München}
 \newcommand*{\getFaculty}{Informatics}
-\newcommand*{\getDegree}{Informatics}
+\newcommand*{\getDegree}{Robotics Cognition Intelligence}
 \newcommand*{\getSchool}{Computation, Information and Technology}
-\newcommand*{\getTitle}{Thesis title}
-\newcommand*{\getTitleGer}{Titel der Abschlussarbeit}
-\newcommand*{\getAuthor}{Author}
-\newcommand*{\getDoctype}{Bachelor's Thesis, Master's Thesis, \ldots}
-\newcommand*{\getSupervisor}{Supervisor}
-\newcommand*{\getAdvisor}{Advisor}
-\newcommand*{\getSubmissionDate}{Submission date}
+\newcommand*{\getTitle}{Optimizing a minimal language using Pre-trained Language Models}
+\newcommand*{\getTitleGer}{Optimierung einer Minimalsprache mithilfe vorab trainierter Sprachmodelle}
+\newcommand*{\getAuthor}{Ajay Narayanan}
+\newcommand*{\getDoctype}{Master's Thesis}
+\newcommand*{\getSupervisor}{Vincent Fortuin}
+\newcommand*{\getAdvisor}{Vincent Fortuin}
+\newcommand*{\getSubmissionDate}{15-05-2025}
 \newcommand*{\getSubmissionLocation}{Munich}
 
 \begin{document}
@@ -43,9 +44,16 @@
 \mainmatter{}
 
 \input{chapters/01_introduction}
+\input{chapters/02_background}
+\input{chapters/03_methodology}
+\input{chapters/04_implementation}
+\input{chapters/05_results.tex}
+\input{chapters/06_discussion.tex}
+\input{chapters/07_author_contributions.tex}
 % TODO: add more chapters here
 
 \appendix{}
+\input{chapters/0A_IPA_Chart.tex}
 
 \microtypesetup{protrusion=false}
 

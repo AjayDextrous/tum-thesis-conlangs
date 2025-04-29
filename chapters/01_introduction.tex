@@ -3,93 +3,64 @@
 
 \chapter{Introduction}\label{chapter:introduction}
 
-\section{Section}
-Citation test~\parencite{latex}.
+This opening chapter will provide an overview of the research topic, reviewing the study's motivation, the research questions, and the 
+methodology. The chapter will also provide a brief outline of the structure of the thesis.
 
-Acronyms must be added in \texttt{main.tex} and are referenced using macros. The first occurrence is automatically replaced with the long version of the acronym, while all subsequent usages use the abbreviation.
+\section{Motivation}
 
-E.g. \texttt{\textbackslash ac\{TUM\}, \textbackslash ac\{TUM\}} $\Rightarrow$ \ac{TUM}, \ac{TUM}
+% What are natural languages? Why do they exist? How do they develop?
+The goal of human language, much like any other human activity, is to aid our survival and propagation. It helps us to collaborate, compete and 
+influence others \cite{Levshina_2022}. Efficiency is another hallmark of all living beings, as a product of biological evolution \cite{haCostBenefit2010}. 
+Thus, languages form from a trade-off between expressiveness and efficiency. They tend to follow rules like Zipf's Law of Abbreviations \cite{piantadosiZipfsWordFrequency2014}, 
+which states that words that are more frequently used tend to be shorter than sparsely used words. 
 
-For more details, see the documentation of the \texttt{acronym} package\footnote{\url{https://ctan.org/pkg/acronym}}.
-\subsection{Subsection}
+% Why is natural language not an optimal length code?
+This is, of course, an idealization. In the real world, speakers must talk in noisy environments, which means that languages often have redundancy
+built in. This redundancy helps in error correction and understanding in such noisy environments. In addition, natural languages are not an
+optimal code in terms of information theory. This is due to the fact that human languages are constrained by the limitations of incremental
+language processing, which enforces constraints which force systematicity, compositionality and concatenation as means of 
+combination \cite{futrellInformationTheoryBridge2022}.
 
-See~\autoref{tab:sample}, \autoref{fig:sample-drawing}, \autoref{fig:sample-plot}, \autoref{fig:sample-listing}.
+% Introduction to conlangs, and a brief history of conlangs
+Constructed Languages (ConLangs) are languages constructed by an individual or group of individuals rather than having evolved 
+naturally \cite{schreyerConstructedLanguages2021}. ConLangs are used for various purposes, such as to serve as an international auxiliary 
+language (e.g. Esperanto), to create a fictional world (Dothraki, Klingon, or Quenya), to be logically rigorous, (e.g. Lojban), or simple 
+and easy to learn (e.g., Toki Pona). Some, like Ithkuil \cite{Ithkuil2024} are designed to express more profound thoughts briefly but clearly. 
 
-\begin{table}[htpb]
-  \caption[Example table]{An example for a simple table.}\label{tab:sample}
-  \centering
-  \begin{tabular}{l l l l}
-    \toprule
-      A & B & C & D \\
-    \midrule
-      1 & 2 & 1 & 2 \\
-      2 & 3 & 2 & 3 \\
-    \bottomrule
-  \end{tabular}
-\end{table}
+% The motivation: what does optimality mean? could we design a constructed language?
+Naturally, the next question that arises is whether we could design a language that is more optimal or efficient than natural languages.
+This question itself is more challenging than it seems. What does it mean for a language to be optimal? Is it efficient in terms of information theory?
+Is it ease of learning? Is it expressiveness? Is it the ability to convey complex thoughts? Is it the ability to be understood in even the most 
+noisy environments? In addition, how do we measure these properties? Therefore, the first motivation of this thesis is to explore what it means 
+for a language to be optimal and whether we can design a language that is more optimal than natural languages. To develop this language, one 
+must define its phonology, orthography, morphology, syntax, and vocabulary.
 
-\begin{figure}[htpb]
-  \centering
-  % This should probably go into a file in figures/
-  \begin{tikzpicture}[node distance=3cm]
-    \node (R0) {$R_1$};
-    \node (R1) [right of=R0] {$R_2$};
-    \node (R2) [below of=R1] {$R_4$};
-    \node (R3) [below of=R0] {$R_3$};
-    \node (R4) [right of=R1] {$R_5$};
+% Motivation: vague idea about how LLMs might have insights into this problem, 
+The second motivation of this thesis is to explore whether Large Language Models (LLMs) can provide insights into this problem. In the process 
+of learning, Large Language Models and Machine Learning models in general, learn to encode various features. These features potentially encode
+information about the structure of language itself, and facts about our world. Trained on a large and varied corpus, they could encode information
+about nearly everything humans communicate about. Thus, it is possible that LLMs could provide insights that could help us design a more optimal language.
 
-    \path[every node]
-      (R0) edge (R1)
-      (R0) edge (R3)
-      (R3) edge (R2)
-      (R2) edge (R1)
-      (R1) edge (R4);
-  \end{tikzpicture}
-  \caption[Example drawing]{An example for a simple drawing.}\label{fig:sample-drawing}
-\end{figure}
+\section{Research Questions}
+The primary research questions of this thesis are:
+\begin{enumerate}
+    \item What are the metrics we can use to evaluate natural languages? 
+    \item Given these metrics, can we design an optimal constructed language?
+    \item What factors affect these metrics?
+    \item Can we use LLMs to generate a language that is more optimal than natural languages?
+\end{enumerate}
+% \item How do we measure the optimality of a language?
+% A brief summary of linguistics, corpus linguistics, computational linguistics, etc.
 
-\begin{figure}[htpb]
-  \centering
+% Concluding Paragraph: bring together the idea of conlangs, LLMs and the research question.
 
-  \pgfplotstableset{col sep=&, row sep=\\}
-  % This should probably go into a file in data/
-  \pgfplotstableread{
-    a & b    \\
-    1 & 1000 \\
-    2 & 1500 \\
-    3 & 1600 \\
-  }\exampleA
-  \pgfplotstableread{
-    a & b    \\
-    1 & 1200 \\
-    2 & 800 \\
-    3 & 1400 \\
-  }\exampleB
-  % This should probably go into a file in figures/
-  \begin{tikzpicture}
-    \begin{axis}[
-        ymin=0,
-        legend style={legend pos=south east},
-        grid,
-        thick,
-        ylabel=Y,
-        xlabel=X
-      ]
-      \addplot table[x=a, y=b]{\exampleA};
-      \addlegendentry{Example A}
-      \addplot table[x=a, y=b]{\exampleB};
-      \addlegendentry{Example B}
-    \end{axis}
-  \end{tikzpicture}
-  \caption[Example plot]{An example for a simple plot.}\label{fig:sample-plot}
-\end{figure}
+To test these hypotheses, we setup a modular pipeline for generating and evaluating constructed languages. The code for this pipeline is available at 
+\url{https://github.com/fortuinlab/conlang}. 
 
-\begin{figure}[htpb]
-  \centering
-  \begin{tabular}{c}
-  \begin{lstlisting}[language=SQL]
-    SELECT * FROM tbl WHERE tbl.str = "str"
-  \end{lstlisting}
-  \end{tabular}
-  \caption[Example listing]{An example for a source code listing.}\label{fig:sample-listing}
-\end{figure}
+\section{Structure of the Thesis}
+
+This thesis is divided into 6 chapters. Chapter~\ref{chapter:background} introduces the necessary background information prerequisite for the main topic.
+It also details the various literature surveyed as part of the research.  Chapter~\ref{chapter:methodology} introduces the research methodology and the
+primary research questions.  Chapter~\ref{chapter:pipeline} describes the implementation of the pipeline, and the various modules used in the pipeline.
+ Chapter~\ref{chapter:results} details the results of the experiments conducted using the pipeline, which are then discussed in  Chapter~\ref{chapter:discussion},
+along with the conclusion and areas for future research.  Chapter~\ref{chapter:contributions} details the individual contributions of the author to the research, and the codebase. 

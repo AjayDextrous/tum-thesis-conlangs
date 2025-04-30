@@ -685,6 +685,21 @@
   file = {/Users/ajaynarayanan/Zotero/storage/B5E7LMQU/00437956.1954.html}
 }
 
+@article{hochreiterLongShortTermMemory1997,
+  title = {Long {{Short-Term Memory}}},
+  author = {Hochreiter, Sepp and Schmidhuber, J{\"u}rgen},
+  year = {1997},
+  month = nov,
+  journal = {Neural Comput.},
+  volume = {9},
+  number = {8},
+  pages = {1735--1780},
+  issn = {0899-7667},
+  doi = {10.1162/neco.1997.9.8.1735},
+  urldate = {2025-04-30},
+  abstract = {Learning to store information over extended time intervals by recurrent backpropagation takes a very long time, mostly because of insufficient, decaying error backflow. We briefly review Hochreiter's (1991) analysis of this problem, then address it by introducing a novel, efficient, gradient based method called long short-term memory (LSTM). Truncating the gradient where this does not do harm, LSTM can learn to bridge minimal time lags in excess of 1000 discrete-time steps by enforcing constant error flow through constant error carousels within special units. Multiplicative gate units learn to open and close access to the constant error flow. LSTM is local in space and time; its computational complexity per time step and weight is O. 1. Our experiments with artificial data involve local, distributed, real-valued, and noisy pattern representations. In comparisons with real-time recurrent learning, back propagation through time, recurrent cascade correlation, Elman nets, and neural sequence chunking, LSTM leads to many more successful runs, and learns much faster. LSTM also solves complex, artificial long-time-lag tasks that have never been solved by previous recurrent network algorithms.}
+}
+
 @misc{huLoRALowRankAdaptation2021,
   title = {{{LoRA}}: {{Low-Rank Adaptation}} of {{Large Language Models}}},
   shorttitle = {{{LoRA}}},
@@ -1674,6 +1689,23 @@
   file = {/Users/ajaynarayanan/Zotero/storage/RVXTWEM8/Trask and Stockwell - 2007 - Language and linguistics The key concepts.pdf}
 }
 
+@misc{vaswaniAttentionAllYou2023,
+  title = {Attention {{Is All You Need}}},
+  author = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N. and Kaiser, Lukasz and Polosukhin, Illia},
+  year = {2023},
+  month = aug,
+  number = {arXiv:1706.03762},
+  eprint = {1706.03762},
+  primaryclass = {cs},
+  publisher = {arXiv},
+  doi = {10.48550/arXiv.1706.03762},
+  urldate = {2025-04-30},
+  abstract = {The dominant sequence transduction models are based on complex recurrent or convolutional neural networks in an encoder-decoder configuration. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. Experiments on two machine translation tasks show these models to be superior in quality while being more parallelizable and requiring significantly less time to train. Our model achieves 28.4 BLEU on the WMT 2014 English-to-German translation task, improving over the existing best results, including ensembles by over 2 BLEU. On the WMT 2014 English-to-French translation task, our model establishes a new single-model state-of-the-art BLEU score of 41.8 after training for 3.5 days on eight GPUs, a small fraction of the training costs of the best models from the literature. We show that the Transformer generalizes well to other tasks by applying it successfully to English constituency parsing both with large and limited training data.},
+  archiveprefix = {arXiv},
+  keywords = {Computer Science - Computation and Language,Computer Science - Machine Learning},
+  file = {/Users/ajaynarayanan/Zotero/storage/QYRM6KX7/Vaswani et al. - 2023 - Attention Is All You Need.pdf;/Users/ajaynarayanan/Zotero/storage/4KFFT88X/1706.html}
+}
+
 @book{wals,
   type = {Data Set},
   title = {{{WALS}} Online (V2020.3)},
@@ -1867,6 +1899,23 @@
   archiveprefix = {arXiv},
   keywords = {Computer Science - Artificial Intelligence,Computer Science - Computation and Language,Computer Science - Machine Learning},
   file = {/Users/ajaynarayanan/Zotero/storage/HA843B2Z/Zhao et al. - 2023 - Explainability for Large Language Models A Survey.pdf;/Users/ajaynarayanan/Zotero/storage/DJB2JYVL/2309.html}
+}
+
+@misc{zhaoSurveyLargeLanguage2025,
+  title = {A {{Survey}} of {{Large Language Models}}},
+  author = {Zhao, Wayne Xin and Zhou, Kun and Li, Junyi and Tang, Tianyi and Wang, Xiaolei and Hou, Yupeng and Min, Yingqian and Zhang, Beichen and Zhang, Junjie and Dong, Zican and Du, Yifan and Yang, Chen and Chen, Yushuo and Chen, Zhipeng and Jiang, Jinhao and Ren, Ruiyang and Li, Yifan and Tang, Xinyu and Liu, Zikang and Liu, Peiyu and Nie, Jian-Yun and Wen, Ji-Rong},
+  year = {2025},
+  month = mar,
+  number = {arXiv:2303.18223},
+  eprint = {2303.18223},
+  primaryclass = {cs},
+  publisher = {arXiv},
+  doi = {10.48550/arXiv.2303.18223},
+  urldate = {2025-04-30},
+  abstract = {Language is essentially a complex, intricate system of human expressions governed by grammatical rules. It poses a significant challenge to develop capable AI algorithms for comprehending and grasping a language. As a major approach, language modeling has been widely studied for language understanding and generation in the past two decades, evolving from statistical language models to neural language models. Recently, pre-trained language models (PLMs) have been proposed by pre-training Transformer models over large-scale corpora, showing strong capabilities in solving various NLP tasks. Since researchers have found that model scaling can lead to performance improvement, they further study the scaling effect by increasing the model size to an even larger size. Interestingly, when the parameter scale exceeds a certain level, these enlarged language models not only achieve a significant performance improvement but also show some special abilities that are not present in small-scale language models. To discriminate the difference in parameter scale, the research community has coined the term large language models (LLM) for the PLMs of significant size. Recently, the research on LLMs has been largely advanced by both academia and industry, and a remarkable progress is the launch of ChatGPT, which has attracted widespread attention from society. The technical evolution of LLMs has been making an important impact on the entire AI community, which would revolutionize the way how we develop and use AI algorithms. In this survey, we review the recent advances of LLMs by introducing the background, key findings, and mainstream techniques. In particular, we focus on four major aspects of LLMs, namely pre-training, adaptation tuning, utilization, and capacity evaluation. Besides, we also summarize the available resources for developing LLMs and discuss the remaining issues for future directions.},
+  archiveprefix = {arXiv},
+  keywords = {Computer Science - Artificial Intelligence,Computer Science - Computation and Language},
+  file = {/Users/ajaynarayanan/Zotero/storage/6NR9PK4E/Zhao et al. - 2025 - A Survey of Large Language Models.pdf;/Users/ajaynarayanan/Zotero/storage/2Q6A8BU9/2303.html}
 }
 
 @misc{zouSurveyDiffusionModels2023,

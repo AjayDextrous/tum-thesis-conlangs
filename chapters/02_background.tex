@@ -1,5 +1,6 @@
 \chapter{Background}\label{chapter:background}
-% TODO : add introduction to background
+In this chapter, we will provide an overview of the key concepts and theories that are relevant to our work. We will also mention key background 
+literature related to this work.
 
 \section{Linguistics}
 Linguistics, the scientific study of languages is a broad and complex field encompassing various subfields. Although a comprehensive summary 
@@ -84,8 +85,8 @@ are called Grammatical Gender, and it often need not have anything to do with se
 have many more. The gender assignment of many objects are often arbitrary. 
 
 \subsubsection{Grammatical Number}
-\textbf{Grammatical Number} is a grammatical category that expresses count distinctions. The most common distinction is between singular(one) and plural(many), but
-some languages also have dual(two), trial(three), paucal(few), and other forms. For example, in English, the noun \textit{cat} is singular, while \textit{cats} is plural.
+\textbf{Grammatical Number} is a grammatical category that expresses count distinctions. The most common distinction is between singular (one) and plural (many), but
+some languages also have dual (two), trial (three), paucal (few), and other forms. For example, in English, the noun \textit{cat} is singular, while \textit{cats} is plural.
 
 \subsubsection{Grammatical Case}
 The \textbf{Grammatical Case} indicates one or more functions of a noun or noun phrase in a sentence. Many different cases have been identified in the worlds languages, such as
@@ -102,27 +103,23 @@ These descriptions are not exact, and precise distinctions can heavily depend on
 
 \subsubsection{Tense, Aspect and Mood}
 
-% TODO: add diagrams describing the time status of different tenses and aspects with timeline
 Tense, aspect and modality all provide some kind of information that is temporal in nature, or tell us about the status of the action or verb. 
 They are often grouped together as \textbf{TAM} (Tense, Aspect, Modality). 
 
 \textbf{Tense} is a grammatical category that indicates the time at which an action takes place. The most common tenses are past, present, and future. 
 For example, in English, the verb \textit{walk} can be inflected to \textit{walked} (past), \textit{walks} (present), and \textit{will walk} (future).
 
-% TODO: list out common tenses
 
 \textbf{Aspect} is a grammatical category that indicates the temporal structure of the action or event described by a verb. It indicates for example, 
 whether the action is bounded, and unitary, or continuous or habitual. For example, in English, the sentences \textit{She danced} and \textit{She was dancing}
 have different aspects. They are both in the past tense, but the first sentence indicates a \textit{perfective}, or completed aspect, while 
 the second sentence indicates an \textit{continuous}, or \textit{progressive} aspect.
-% TODO: list out common aspects
 
 \textbf{Modality} is a grammatical category that indicates the speaker's attitude towards the action or event described by a verb. Modern linguists 
 usually associate it with the expression of obligation, permission, prohibition, necessity, possibility and ability \cite{trask2007language}. In English,
 modality is primarily expressed using Auxiliary verbs, such as \textit{can}, \textit{may}, \textit{must}, etc. For example, the sentence \textit{He can dance} indicates ability, while
 the sentence \textit{He must dance} indicates obligation.
 
-% TODO: categories and types of modality
 
 \subsubsection{Grammatical Person}
 \textbf{Grammatical Person} is a grammatical category that indicates the different relationships between the speaker, the listener, and others in the discourse.
@@ -150,7 +147,12 @@ Noun Phrases, Verb Phrases, and so on. For example, a Noun Phrase could be defin
 With these rules, known as \textbf{Phrase Structure Rules}, we can generate a tree structure for a sentence, known as a \textbf{Parse Tree} \cite{jm3}.
 
 %  TODO: Figure for Parse tree example + Description. see https://tex.stackexchange.com/questions/111196/how-to-create-syntactic-trees-and-align-them-in-latex
-
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/syntactic_parse_tree.png}
+    \caption{Parse Tree for the sentence \textit{The woman ate the Apple}}
+    \label{fig:parse_tree}
+\end{figure}
 
 
 \section{Constructed Languages}
@@ -159,13 +161,18 @@ like \textit{Quenya} and \textit{Sindarin} from J.R.R. Tolkien's Middle-Earth, o
 Others are created for international communication, like \textit{Esperanto} and \textit{Volapük}. Some conlangs are created to be more logical or efficient, like \textit{Lojban} and \textit{Ithkuil}
 , or easy to learn, like \textit{Toki Pona}.
 
+Although people have been likely creating languages since time immemorial, \textit{Lingua Ignota}, created by the nun Hildegard von Bingen in 12 CE \cite{schreyerConstructedLanguages2021}.
+Language Creation became popularized in the mainstream by J.R.R. Tolkien, who created several languages for his works, and his technique has influenced
+many conlangers since \cite{petersonArtLanguageInvention2015}. In the early 90s, the internet allowed for the formation of a community of conlangers, 
+who share their work and techniques online.
+
 \subsection{The Process of Language Creation}
 
 There has been a strong online community of language creators, called conlangers since the 1990s \cite{petersonArtLanguageInvention2015}. 
 The community has created a wealth of resources for language creation. In particular, \cite{petersonArtLanguageInvention2015} and \cite{rosenfelder2010language} provide 
 a comprehensive overview of the process of language creation. The process starts with the creation of a phonetic inventory, and phonotactics, which gives the language a distinct
 character. The next steps involve, word building, grammar, semantics and pragmatics \cite{rosenfelder2010language}.
-% TODO: add info from peterson and language construction kit + links to resources.
+
 
 \section{Evaluation}
 \subsection{Evaluation of Machine Translations}
@@ -275,6 +282,17 @@ It consists of 4275 passages and 14122 questions. Figure~\ref{fig:race-c-sample}
 	\label{fig:race-c-sample}
 \end{figure}
 
+\subsection{Zipf's Law}
+In 1935, George Zipf made an observation which he claimed to be a universal property of human languages: The more frequent a word, the 
+shorter it tends to be \cite{kanwalZipfsLawAbbreviation2017}. This is known as \textbf{Zipf's Law of Abbreviation}, or simply \textbf{Zipf's Law}.
+
+In mathematical terms,
+\begin{equation}
+    f(r) \propto \frac{1}{r^\alpha}
+\end{equation}
+
+Where $f(r)$ is the frequency of the $r^{th}$ most frequent word, and $\alpha$ is a constant known as \textit{Zipf's Exponent}. For natural languages,
+the value of $\alpha$ is noted to be around $1$.
 
 \section{Language Models and Embeddings}
 
@@ -295,6 +313,22 @@ for each word, regardless of the context in which they appear. For example, the 
 and GPT-3 \cite{brownLanguageModelsAre2020}, on the other hand, create dynamic representations that depend on the context in which the word appears.
 
 % TODO: add figure showing example of word embeddings in 2D space.
+
+\subsection{Large Language Models}
+In NLP, Language Modeling aims to model the generative likelyhood of word sequences to to predict the probabilities of the next or missing word
+in a sequence \cite{zhaoSurveyLargeLanguage2025}. Traditionally, language models were based on the markov assumption, predicting the next word 
+in a sequence based on the previous $n$ words, and they were called $n$-gram models \cite{jm3}. Neural Language Models, on the other hand, use neural networks
+to learn the probability distribution of the next word in a sequence, and are trained on large corpora of text. Initially they were based on recurrant neural networks
+such as LSTMs \cite{hochreiterLongShortTermMemory1997}, but have since evolved to use transformer architectures \cite{vaswaniAttentionAllYou2023}.
+
+The transformer architecture is based on the self-attention mechanism, which allows the model to weigh the importance of different tokens in a sequence
+when making predictions. This allows the model to capture long-range dependencies and relationships between tokens, which is crucial for 
+understanding natural language. These models are often called Pre-trained Language Models (PLMs) because they are initially trained on large corpora of text,
+called \textit{pre-training}, and then \textit{fine-tuned} on specific tasks, such as machine translation or reading comprehension. Researchers have noted that increasing the size of these models and the amount of training data leads to better performance on a wide range of NLP tasks, leading to the
+rise of what are called \textbf{Large Language Models} (LLMs) \cite{brownLanguageModelsAre2020}.
+
+% TODO: Introduce GPT, BERT, DeepSeek.
+% More on fine tuning, perplexity etc.
 
 
 \subsection{Clustering Algorithms}

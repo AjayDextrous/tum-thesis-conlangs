@@ -96,25 +96,25 @@ This is a mapping module that randomly assigns a word to each concept in the voc
 Once the language description is generated, we use a translation module to translate some text corpora represented by \texttt{AbstractSourceText}.
 The module translates the source text paragraph by paragraph, using an LLM model.
 
-\subsection{Evaluation Modules}
+\section{Evaluation Modules}
 Figure~\ref{fig:evaluations_structure} shows the setup for running evaluations on the generated languages. The Evaluators are a separate class 
 that does not inherit from the abstract \texttt{Module} class. They inherit the \texttt{Evaluator} class, which creates an evaluations folder 
 inside the results folder, to store the results of the evaluations. 
 
-\subsubsection{GenerateTranslationSummary}
+\subsection{GenerateTranslationSummary}
 This evaluator generates an HTML summary of the language description, and the generated translation. It also counts the vocabulary size and
 the number of syllables in the conlang.
-\subsubsection{DetranslationEvaluator}
+\subsection{DetranslationEvaluator}
 This evaluator takes the generated translation and translates it back to english, using the same LLM model. It then compares the original text with the translated text,
 and generates translation metrics like BLEU, METEOR, and ROUGE. It also generates an HTML summary of the detranslation.
-\subsubsection{CompressionEvaluator}
+\subsection{CompressionEvaluator}
 This evaluator compresses the generated translation and source text using a compression algorithm, and generates the compression ratio for both.
-\subsubsection{RaceCEvaluator}
+\subsection{RaceCEvaluator}
 This evaluator evaluates the performance on the Race-C Dataset, using the original text and the detranslated text. It generates the accuracy scores for the 
 evaluation.
-\subsubsection{BertEvaluator}
+\subsection{BertEvaluator}
 This evaluator fine-tunes a BERT model and records the initial and final perplexity, along with the eval loss and loss reduction rate.
-\subsubsection{ZipfsLawEvaluator}
+\subsection{ZipfsLawEvaluator}
 This evaluator generates a Zipf's Law plot for the generated translation and the source text, and records the Zipf's Exponent for both.
 
 \begin{figure}
@@ -124,8 +124,8 @@ This evaluator generates a Zipf's Law plot for the generated translation and the
     \label{fig:evaluations_structure}
 \end{figure}
 
-\subsection{Pipelines}
-\subsubsection{Baseline Pipeline}
+\section{Pipeline Implementations}
+\subsection{Baseline Pipeline}
  The baseline pipeline is the most straightforward pipeline, which we use to compare with different setups. Figure~\ref{fig:baseline_pipeline} 
  shows the structure of the baseline pipeline. We used the most common number of phonemes in the world languages, as well as the most common
  phonotactic rules. It uses a simple Agglutinative grammar, and ensures all words from the source text is included in the vocabulary.
@@ -136,26 +136,35 @@ This evaluator generates a Zipf's Law plot for the generated translation and the
     \caption{The baseline pipeline for generating constructed languages.}
     \label{fig:baseline_pipeline}
 \end{figure}
-\subsubsection{Approximation Pipeline}
+\subsection{Approximation Pipeline}
 The approximation pipeline uses an approximation vocabulary module, which create a fixed vocabulary based on the most common words in english, 
 and then approximates the rest of the words to the closest word in the vocabulary. Everything else is the same as the baseline pipeline.
-\subsubsection{Two Level Pipeline}
+\subsection{Two Level Pipeline}
 The two level pipeline uses a two level vocabulary module, which clusters the vocabulary into \texttt{n} clusters, based on embeddings. Each word is bisyllabic, 
 and the first syllable is the root syllable based on the cluster, and the second syllable is the leaf syllable.
-\subsubsection{Cluster and Simplify Pipeline}
+\subsection{Cluster and Simplify Pipeline}
 The cluster and simplify pipeline uses the cluster and simplify vocabulary module, which clusters the vocabulary into \texttt{n} clusters, based on embeddings.
 Each cluster is assigned a single word, and the rest of the words are approximated to the closest word in the cluster.
-\subsubsection{Phonotactics Pipeline}
+\subsection{Phonotactics Pipeline}
 The phonotactics pipeline uses the \texttt{CustomPhonotacticsModule}. As compared to the baseline pipeline which uses the \texttt{CV} syllable structure,
 This pipeline uses custom phonotactic rules. The rest of the pipeline is the same as the baseline pipeline.
 
-\subsection{LLMs and Embedders}
+\section{LLMs and Embedders}
 We used both Local and Remote LLMs for our experiments. The use of Local LLMs is facilitated by the \texttt{LocalLLM} class, which is a wrapper 
 to access local LLMs via the Ollama Library. The Remote LLMs are accessed via the \texttt{RemoteLLM} class, which supports two providers: OpenAI and Groq.
 The primary models used for the experiments were \textit{deepseek-r1:14b} and OpenAI's \textit{gpt-4o}.  
 
 For the embedding models, we primarily used the \textit{all-MiniLM-L6-v2} model from HuggingFace.
 
-\subsection{Clustering}
+\section{Clustering}
+Wherever clustering is required, it is done with subclasses of the \texttt{ClusteringMethod} class which implement the \texttt{get\_clusters} method.
 We used the \textit{AgglomerativeClustering} class from the \textit{sklearn} library for clustering the vocabulary, which we noticed gave the best 
-results heuristically.
+results heuristically. The codebase also has implementations for \textit{KMeans}, \textit{DBScan}, \textit{HDBScan}, etc.
+
+\section{Other tools}
+The source texts used for the experiments are accessed via the \texttt{AbstractSourceText} class, which is a wrapper for the source text.
+We provide multiple implementations of this class, and in the final experiments we used the \texttt{RaceC} class, which uses the articles from
+the Race-C dataset. Once translated, the translation pairs can be accessed via the \texttt{AbstractTranslationPairs} class. 
+
+For obtaining the most common words in english, we used the \textit{wordfreq} python library \cite{speerRspeerWordfreq2025}. This library provides
+frequency lists for the most common words in over 40 languages, and is based on the Exquisite Corpus \cite{LuminosoInsightExquisitecorpus2025}.

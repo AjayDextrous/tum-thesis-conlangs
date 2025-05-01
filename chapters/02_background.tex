@@ -36,7 +36,7 @@ by a native speaker of a language. Phonemes and Phonemic transcriptions are repr
 
 \textbf{Phonotactics} defines the rules that govern the permissible sound sequences in a language \cite{trask2007language}. For example, in English,
 the sequence \textipa{/bl/} is permissible at the beginning of a word (e.g. \textit{bled}) but not the sequence \textipa{/bn/}. Languages usually
-modify loadwords to fit their own phonotactic constraints. For example, the English word \textit{beer} is borrowed into Japanese as \textit{biru}.
+modify loanwords to fit their own phonotactic constraints. For example, the English word \textit{beer} is borrowed into Japanese as \textit{biru}.
 
 
 \subsection{Morphology}
@@ -156,7 +156,7 @@ With these rules, known as \textbf{Phrase Structure Rules}, we can generate a tr
 
 
 \section{Constructed Languages}
-Constructed Languages are languages that have not naturally evolved, but were artifically constructed. Some conlangs are created for fictional word-building,
+Constructed Languages are languages that have not naturally evolved, but were artificially constructed. Some conlangs are created for fictional word-building,
 like \textit{Quenya} and \textit{Sindarin} from J.R.R. Tolkien's Middle-Earth, or \textit{Dothraki} and \textit{High Valyrian} from George R.R. Martin's A Song of Ice and Fire.
 Others are created for international communication, like \textit{Esperanto} and \textit{Volapük}. Some conlangs are created to be more logical or efficient, like \textit{Lojban} and \textit{Ithkuil}
 , or easy to learn, like \textit{Toki Pona}.
@@ -225,8 +225,8 @@ due to its ability to consider semantic variations.
 Natural language, being a means of communication consists primarily of information transmission \cite{debowskiInformationTheoryLanguage2020}. There have
 been several attempts to quantify the information content of a language using information theory. Shannon \cite{shannonPredictionEntropyPrinted1951} introduced a new
 method of estimating the entropy and in turn the redundancy of a language. Entropy in a sense measures the average amount of information for each letter in a text.
-Natural language however, is not a minimal length source code. It operates under the constraints of incremental language processing, which enforces
-systematicity, compositionality and concatenation as means of combination  \cite{futrellInformationTheoryBridge2022}. Redundancy often serves another
+Natural language however, is not a minimal length source code. It operates under the constraints of incremental language processing, which enforces them to be
+systematic, compositional and use concatenation as means of combination  \cite{futrellInformationTheoryBridge2022}. Redundancy often serves another
 important purpose, which is to help in error correction and understanding in noisy environments \cite{gibsonHowEfficiencyShapes2019}.
 
 \subsection{Reading Comprehension Evaluation of Language Models}
@@ -298,7 +298,7 @@ the value of $\alpha$ is noted to be around $1$.
 
 \subsection{Representation Learning}
 The performance of NLP tasks, or any machine learning tasks in general is dependent on the choice of data representation \cite{bengioRepresentationLearningReview2014}.
-Classical methods often involve pain-stakingly hand-crafting features for each task, which is often not feasible for large datasets. \textbf{Representation learning}
+Classical methods often involve painstakingly hand-crafting features for each task, which is often not feasible for large datasets. \textbf{Representation learning}
 presents a way to automatically learn representations from the data, which can then be used for various downstream tasks. 
 
 Coming specifically to NLP, Words that occur in similar contexts tend to have similar meanings \cite{harrisDistributionalStructure1954}. This is 
@@ -315,18 +315,34 @@ and GPT-3 \cite{brownLanguageModelsAre2020}, on the other hand, create dynamic r
 % TODO: add figure showing example of word embeddings in 2D space.
 
 \subsection{Large Language Models}
-In NLP, Language Modeling aims to model the generative likelyhood of word sequences to to predict the probabilities of the next or missing word
+In NLP, Language Modeling aims to model the generative likelihood of word sequences to to predict the probabilities of the next or missing word
 in a sequence \cite{zhaoSurveyLargeLanguage2025}. Traditionally, language models were based on the markov assumption, predicting the next word 
 in a sequence based on the previous $n$ words, and they were called $n$-gram models \cite{jm3}. Neural Language Models, on the other hand, use neural networks
-to learn the probability distribution of the next word in a sequence, and are trained on large corpora of text. Initially they were based on recurrant neural networks
+to learn the probability distribution of the next word in a sequence, and are trained on large corpora of text. Initially they were based on recurrent neural networks
 such as LSTMs \cite{hochreiterLongShortTermMemory1997}, but have since evolved to use transformer architectures \cite{vaswaniAttentionAllYou2023}.
 
 The transformer architecture is based on the self-attention mechanism, which allows the model to weigh the importance of different tokens in a sequence
 when making predictions. This allows the model to capture long-range dependencies and relationships between tokens, which is crucial for 
 understanding natural language. These models are often called Pre-trained Language Models (PLMs) because they are initially trained on large corpora of text,
-called \textit{pre-training}, and then \textit{fine-tuned} on specific tasks, such as machine translation or reading comprehension. Researchers have noted that increasing the size of these models and the amount of training data leads to better performance on a wide range of NLP tasks, leading to the
+called \textit{pre-training}, and then \textit{fine-tuned} on specific tasks, such as machine translation or reading comprehension. Researchers 
+have noted that increasing the size of these models and the amount of training data leads to better performance on a wide range of NLP tasks, leading to the
 rise of what are called \textbf{Large Language Models} (LLMs) \cite{brownLanguageModelsAre2020}.
 
+In our work, we integrate multiple LLMs into our workflow.
+\subsubsection{GPT-4o}
+ \textit{gpt-4o} is a decoder based LLM from the GPT family of models \cite{brownLanguageModelsAre2020}. Although the exact architecture and training data are not publicly available, 
+ details about the previous versions of the GPT model have been published. The GPT models are based on the transformer architecture, and are a decoder-only model. 
+ They are trained using a causal language modeling objective, which means that they predict the next word in a sequence given the previous words.
+
+\subsubsection{DeepSeek-r1}
+The DeepSeek family of models \cite{deepseek-aiDeepSeekR1IncentivizingReasoning2025} are a set of reasoning models whose performance has been improved
+via reinforecement learning. These models also include smaller models which are distilled from larger models.
+
+\subsubsection{BERT}
+\textit{BERT} (Bidirectional Encoder Representations from Transformers) \cite{devlinBERTPretrainingDeep2019} is an encoder based LLM from the BERT family of models. 
+BERT is based on the transformer architecture, and is a bidirectional model. It is trained using a masked language modeling objective, which means that it predicts the 
+missing words in a sequence given the surrounding words. BERT has been shown to achieve state-of-the-art performance on a wide range of NLP tasks, 
+including reading comprehension, named entity recognition, and sentiment analysis \cite{rogersPrimerBERTologyWhat2020a}.
 % TODO: Introduce GPT, BERT, DeepSeek.
 % More on fine tuning, perplexity etc.
 
@@ -347,7 +363,7 @@ various semantic relations between these synonym sets.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.8\textwidth]{figures/wordnet_single_synset.png}
+    \includegraphics[width=0.7\textwidth]{figures/wordnet_single_synset.png}
     \caption{WordNet synset for the word \textit{dog.n.01}.}
     \label{fig:wordnet_single_synset}
 \end{figure}
@@ -361,5 +377,6 @@ WordNet does not just interlink word forms, but specific senses of each word, wh
     \label{fig:wordnet_multiple_synset}
 \end{figure}
 
-
-
+\section{Exquisite Corpus}
+The Exquisite Corpus \cite{LuminosoInsightExquisitecorpus2025} is project to create a good varied multilingual corpus data, which is used for 
+other tools such as the \textit{wordfreq} python package. The data comes from multiple sources including Wikipedia, Subtitles, News, Books, websites, etc.

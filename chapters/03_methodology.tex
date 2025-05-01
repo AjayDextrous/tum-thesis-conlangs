@@ -42,7 +42,8 @@ and the results can be stored along with the language in the results. In particu
 The Information loss metrics evaluate how well the generated language can retain information from the original text. The different benchmarks we use for this metric are:
 
 \begin{enumerate}
-	\item \textbf{Machine Translation Scores}: We translate a text from English to the generated language and back to English, and evaluate the translation score using BLEU \cite{papineniBLEUMethodAutomatic2002}, ROUGE \cite{linROUGEPackageAutomatic2004} and METEOR \cite{banerjeeMETEORAutomaticMetric2005}. 
+	\item \textbf{Machine Translation Scores}: We translate a text from English to the generated language and back to English, and evaluate the translation 
+	score using BLEU \cite{papineniBLEUMethodAutomatic2002}, ROUGE \cite{linROUGEPackageAutomatic2004} and METEOR \cite{banerjeeMETEORAutomaticMetric2005}. 
 	The translation is done using a pre-trained LLM, and the scores are calculated using the generated text.
 	\item \textbf{Reading Comprehension Scores}: We evaluate the Reading Comprehension score of the generated text using a pre-trained LLM. 
 	The LLM is given a passage in both English and the generated language and a set of questions, and it is evaluated on how well it can answer the questions. 

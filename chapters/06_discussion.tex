@@ -38,13 +38,15 @@ using simplifed phonotactic rules without affecting the ability of the language 
     \label{fig:compare-grammar}
 \end{figure}
 
-
+We implemented 2 different grammars, but from our results we did not find any significant difference between the Agglutinative and Isolating 
+grammar modules, save for differences in the Final Perplexity in the Bert Evaluation. Further investigation is required to analyse the effects
+of grammatical features in constructed languages.
 
 \section{Effect of Vocabulary Generation method}
 
 Figure \ref{fig:compare-vocab-gen-types} shows the effect of different simplifying vocabulary generation methods against our metrics.
 We can see that both methods result in a drop in the translation scores, and in the Race-C scores. We can consider the ratio of the Mean Translation Score (MTS) and 
-the Race-C Accurary to the vocabulary size.
+the Race-C Accuracy to the vocabulary size.
 
 \begin{figure}[H]
     \centering
@@ -101,5 +103,7 @@ opening new avenues for both linguistic theory and applied language technology.
 \section{Future Work}
 The results of this thesis show that it is possible to generate simplified languages that are still able to convey meaning. However, there are still many
 open areas for future work. Firstly, we can explore other different language generation methods, including more or less complex grammatical rules,
-or different vocabulary generation methods. In addition, we can explore more metrics to evaluate the generated languages. In particular, there is more to explore
+or different vocabulary generation methods. In particular, further research is required in analyzing the effects of different grammatical structures.
+
+In addition, further research is required on metrics to evaluate the generated languages. In particular, there is more to explore
 in terms of simplicity measures, which are complex to define and measure.

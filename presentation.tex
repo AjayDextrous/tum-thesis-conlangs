@@ -133,7 +133,7 @@
 % Slide 3: Modular Language Generation Pipeline
 \begin{frame}{Language Generation Pipeline}
 	\begin{itemize}
-		\item Modules operate sequentially or in parallel with shared dependencies.
+		\item Modules operate sequentially, with some dependencies.
 		\item Each module is an independent variable.
 		\item Enables targeted experimentation to study:
 		\begin{enumerate}
@@ -225,8 +225,8 @@
 	\end{itemize}
 	\textbf{Phonotactics Module}
 	\begin{itemize}
-		\item \texttt{BasicPhonotacticsModule} for C/V structures.
-		\item \texttt{CustomPhonotacticsModule} supports constraints.
+		\item \texttt{BasicPhonotacticsModule} for basic C/V structures.
+		\item \texttt{CustomPhonotacticsModule} supports specific phoneme constraints.
 	\end{itemize}
 \end{frame}
 
@@ -281,21 +281,12 @@
 % Slide 8
 \begin{frame}{Evaluation Modules}
 	\begin{itemize}
-		\item \textbf{Translation Quality:}
-		\begin{itemize}
 			\item \texttt{DetranslationEvaluator} (BLEU, METEOR, ROUGE)
 			\item \texttt{GenerateTranslationSummary}
-		\end{itemize}
-		\item \textbf{Compression and Comprehension:}
-		\begin{itemize}
 			\item \texttt{CompressionEvaluator}
 			\item \texttt{RaceCEvaluator}
-		\end{itemize}
-		\item \textbf{Learnability and Naturalness:}
-		\begin{itemize}
 			\item \texttt{BertEvaluator}
 			\item \texttt{ZipfsLawEvaluator}
-		\end{itemize}
 	\end{itemize}
 \end{frame}
 

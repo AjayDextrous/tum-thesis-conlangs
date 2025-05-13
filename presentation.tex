@@ -25,6 +25,7 @@
 			\item \textbf{Expressiveness}
 			\item \textbf{Efficiency} (driven by evolution)
 		\end{itemize}
+		\item This would lead us to assume natural languages are optimized given these variables.
 	\end{itemize}
 \end{frame}
 
@@ -33,7 +34,7 @@
 	\begin{itemize}
 		\item Real-world communication happens in noisy environments.
 		\item Redundancy helps with error correction.
-		\item Natural languages are constrained by:
+		\item Natural languages are also constrained by:
 		\begin{itemize}
 			\item Incremental language processing
 			\item Need for compositionality, systematicity, and concatenation
@@ -103,7 +104,7 @@
 \begin{frame}{Methodological Overview}
 	\begin{itemize}
 		\item Step-by-step approach inspired by language construction literature.
-		\item Language specification includes:
+		\item Building a language specification that includes:
 		\begin{itemize}
 			\item Phonemic inventory
 			\item Phonotactics
@@ -197,6 +198,7 @@
 \section{System Design and Implementation}
 
 % Slide 1
+
 \begin{frame}{Pipeline Overview}
 	\begin{itemize}
 		\item Modular architecture for conlang generation.
@@ -204,6 +206,8 @@
 		\item Pipeline managed by subclassing \texttt{Pipeline}.
 		\item JSON-based output for module results.
 	\end{itemize}
+		\centering
+	\includegraphics[width=0.7\linewidth]{figures/pipeline_structure.png}
 \end{frame}
 
 % Slide 2
@@ -276,16 +280,18 @@
 		\item Independent of the main pipeline.
 		\item Outputs saved in an \texttt{evaluations} folder.
 	\end{itemize}
+			\centering
+	\includegraphics[width=0.7\linewidth]{figures/evaluations_structure.png}
 \end{frame}
 
 % Slide 8
 \begin{frame}{Evaluation Modules}
 	\begin{itemize}
 			\item \texttt{DetranslationEvaluator} (BLEU, METEOR, ROUGE)
-			\item \texttt{GenerateTranslationSummary}
+			\item \texttt{GenerateTranslationSummary} (Vocab Size, Syllables)
 			\item \texttt{CompressionEvaluator}
 			\item \texttt{RaceCEvaluator}
-			\item \texttt{BertEvaluator}
+			\item \texttt{BertEvaluator} (Perplexity, Eval Loss)
 			\item \texttt{ZipfsLawEvaluator}
 	\end{itemize}
 \end{frame}
@@ -330,16 +336,6 @@
 \end{frame}
 
 \section{Results and Evaluation}
-
-% Slide: Introduction
-\begin{frame}{Overview}
-	\begin{itemize}
-		\item Discusses key experimental results.
-		\item Evaluates effects of parameters on performance.
-		\item Summarizes findings.
-		\item Outlines directions for future work.
-	\end{itemize}
-\end{frame}
 
 % Slide: Effect of Phoneme Count
 \begin{frame}{Effect of Phoneme Count}
@@ -402,6 +398,15 @@
 	\includegraphics[width=0.7\linewidth]{figures/results/1_effect_of_model_temperature.png}
 \end{frame}
 
+\begin{frame}{Samples}
+	\begin{itemize}
+		\item   \href{http://localhost:63342/conlang/results/approximating_pipeline_18_5/evaluations/GenerateTranslationSummary/translation_summary.html?_ijt=q4qfphu3pnt7uhdu2u1eojnaq4&_ij_reload=RELOAD_ON_SAVE}{Summary of Approximating Pipeline 18 5}
+		\item    \href{http://localhost:63342/conlang/results/cluster_simplify_pipeline_90_clusters/evaluations/DetranslationEvaluator/detranslation_evaluation.html?_ijt=7ql1gh6dt1uapfjm84oajcohpm&_ij_reload=RELOAD_ON_SAVE}{Detranslation of Cluster Simplify 90 Clusters}
+		
+		
+	\end{itemize}
+\end{frame}
+
 \section{Conclusion}
 
 % Slide: Conclusion
@@ -430,5 +435,15 @@
 	Thank you!\\
 	Questions are welcome.
 \end{frame}
+
+\begin{frame}{Comparing Simplified Vocabularies}
+	\begin{figure}[H]  
+		\centering
+		\includegraphics[width=0.7\linewidth]{figures/results/0_pairplot_vocabulary.png}
+		\caption{Comparing different Simplifying vocabulary generation methods with the baseline.}
+		\label{fig:compare-vocab-gen-types}
+	\end{figure}
+\end{frame}
+
 
 \end{document}

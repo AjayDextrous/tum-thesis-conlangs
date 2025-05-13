@@ -1,18 +1,37 @@
 \chapter{Results}\label{chapter:results}
 
 This chapter presents the results of the experiments conducted to evaluate the performance of the different setups. The complete table of 
-results is shown in Table~\ref{tab:results-summary}.
+results is shown in Table~\ref{tab:results-summary}. Table \ref{tab:legend} describes the acronyms used in the figures.
+
+\begin{table}
+    \centering
+    \begin{tabular}{c|c}
+        \textbf{Acronym} & \textbf{Description} \\
+        \hline
+        \textbf{AP} & Approximating Pipeline \\
+        \textbf{BP} & Baseline Pipeline \\
+        \textbf{CSP} & Cluster Simplify Pipeline \\
+        \textbf{PTP} & Phonotactics Pipeline \\
+        \textbf{TKP} & Toki Pona Pipeline \\
+        \textbf{IP} & Isolating Pipeline \\
+        \textbf{MTP} & Model Temperature Pipeline \\
+        \textbf{TLP} & Two Level Pipeline \\
+    \end{tabular}
+    \caption{Legend for result figures}
+    \label{tab:legend}
+\end{table}
+
 
 \section{Vocabulary Statistics}
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.48\linewidth}
+    \begin{subfigure}[b]{0.6\linewidth}
         \includegraphics[width=\linewidth]{figures/results/vocabulary_size.png}
         \caption{Vocabulary Size}
         \label{fig:vocabulary-size}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{0.48\textwidth}
+    \begin{subfigure}[b]{0.6\textwidth}
         \includegraphics[width=\linewidth]{figures/results/syllable_count.png}
         \caption{Syllable Count}
         \label{fig:syllable-count}

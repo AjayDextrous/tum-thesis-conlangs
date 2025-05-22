@@ -2,6 +2,7 @@
 \usetheme{metropolis}           % Use metropolis theme
 \usepackage{graphicx}
 \usepackage{subcaption}
+\usepackage{tipa}
 \title{Optimizing a Minimal Language using Pre-trained Language Models}
 \date{}
 \author{Ajay Narayanan}
@@ -234,6 +235,58 @@
 	\end{itemize}
 \end{frame}
 
+\begin{frame}{Generating the Phonetics}
+
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|l|c c c c c c c c c c c|}
+		\hline
+		\textbf{} & \multicolumn{11}{c|}{} \\
+		\hline
+		Phoneme  & \textipa{i} & \textipa{u} & \textipa{a} & \textipa{e} & \textipa{o} & \textipa{m} & \textipa{k} & \textipa{j} & \textipa{p} & \textipa{w} & \textipa{n} \\
+		Alphabet & i           & u           & a           & e           & o           & m           & k           & y           & p           & w           & n \\
+		\hline
+	\end{tabular}
+	
+	\vspace{0.5cm}
+	
+	\begin{tabular}{|l|c c c c c c c c c c c c|}
+		\hline
+		\textbf{} & \multicolumn{12}{c|}{} \\
+		\hline
+		Phoneme  & \textipa{t} & \textipa{l} & \textipa{s} & \textipa{b} & \textipa{N} & g & \textipa{h} & \textipa{d} & \textipa{r} & \textipa{f} & \textltailn & \textipa{t\textesh} \\
+		Alphabet & t           & l           & s           & b           & ng          & g           & h           & d           & r           & f           & ñ           & ch \\
+		\hline
+	\end{tabular}
+	\caption{Output of the Most common phonemes module, and alphabet module.}
+\end{table}
+	
+\end{frame}
+
+
+\begin{frame}{Generating the Syllables}
+	
+	\begin{table}[h!]
+		\centering
+		\begin{tabular}{llllllllll}
+
+			ba & be & bi & bo & bu & cha & che & chi & cho & chu \\
+			da & de & di & do & du & fa & fe & fi & fo & fu \\
+			ga & ge & gi & go & gu & ha & he & hi & ho & hu \\
+			ka & ke & ki & ko & ku & la & le & li & lo & lu \\
+			ma & me & mi & mo & mu & na & ne & nga & nge & ngi \\
+			ngo & ngu & ni & no & nu & pa & pe & pi & po & pu \\
+			ra & re & ri & ro & ru & sa & se & si & so & su \\
+			ta & te & ti & to & tu & wa & we & wi & wo & wu \\
+			ya & ye & yi & yo & yu & ña & ñe & ñi & ño & ñu \\
+
+		\end{tabular}
+		\caption{Output of phonotactics (with CV Structure) and syllable builder modules}
+	\end{table}
+
+\end{frame}
+
 % Slide 4
 \begin{frame}{Grammar Modules}
 	\begin{itemize}
@@ -245,6 +298,27 @@
 			\item \texttt{BaselineIsolatingGrammarModule}
 		\end{itemize}
 	\end{itemize}
+\end{frame}
+
+\begin{frame}{Defining the Grammar}
+\begin{itemize}
+	\item The language has the following standard word order: SOV
+	\item The language is primarily agglutinative, i.e. complex words are formed by stringing together morphemes.
+	\item All nouns have the following features:
+	\begin{itemize}
+		\item The nominative case is not marked.
+		\item The accusative case is marked by the suffix: \texttt{ha}
+		\item ...
+	\end{itemize}
+	\item Articles have the following features:
+	\begin{itemize}
+		\item Definite (the) article is expressed using particle after the noun: \texttt{yu}
+		\item ...
+	\end{itemize}
+	\item ...
+	\item There are no separate Yes or No words. Yes/No questions can be answered by echoing the verb in the question with or without negation.
+\end{itemize}
+
 \end{frame}
 
 % Slide 5
@@ -265,12 +339,43 @@
 	\end{itemize}
 \end{frame}
 
+\begin{frame}{Generating the Vocabulary}
+		\begin{table}[h!]
+		\centering
+		
+\begin{tabular}{|l l p{6cm}|}
+	\hline
+	\textbf{ID} & \textbf{Word} & \textbf{Definition} \\
+	\hline
+	turn.v.07 & nibo & pass into a condition gradually, take on a specific property or attribute; become \\
+
+	doctor.n.01 & ngosa & a licensed medical practitioner \\
+
+	family.n.01 & wowu & a social unit living together \\
+
+	century.n.01 & fako & a period of 100 years \\
+	\vdots & \vdots & \vdots \\
+	\hline
+\end{tabular}
+\caption{Output of Vocabulary Generation and Mapping Modules}
+\end{table}
+\end{frame}
+
 % Slide 6
 \begin{frame}{Translation Module}
 	\begin{itemize}
 		\item Translates using LLMs.
 		\item Paragraph-level translation of \texttt{AbstractSourceText}.
 	\end{itemize}
+\end{frame}
+
+\begin{frame} {Generating Text}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.6\linewidth]{figures/ap_18_5_source_trans.png}
+	\caption{Output of the translation module}
+	\label{fig:source_trans-ap}
+\end{figure}
 \end{frame}
 
 % Slide 7

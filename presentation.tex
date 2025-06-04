@@ -147,55 +147,6 @@
 	\end{itemize}
 \end{frame}
 
-% Slide 4: Evaluation Framework
-\begin{frame}{Evaluation Framework}
-	\begin{itemize}
-		\item Evaluation modules benchmark generated languages.
-		\item Results stored alongside each language.
-		\item Three main categories:
-		\begin{itemize}
-			\item Information Loss
-			\item Simplicity
-			\item Zipf's Law Compliance
-		\end{itemize}
-	\end{itemize}
-\end{frame}
-
-% Slide 5: Information Loss Metrics
-\begin{frame}{Information Loss Metrics}
-	\begin{itemize}
-		\item \textbf{Machine Translation Scores}:
-		\begin{itemize}
-			\item Round-trip translation using LLM
-			\item Evaluated with BLEU, ROUGE, METEOR
-		\end{itemize}
-		\item \textbf{Reading Comprehension}:
-		\begin{itemize}
-			\item LLM answers questions based on original and translated texts
-			\item Score = \% of correct answers
-		\end{itemize}
-	\end{itemize}
-\end{frame}
-
-% Slide 6: Simplicity Metrics
-\begin{frame}{Simplicity Metrics}
-	\begin{itemize}
-		\item \textbf{BERT Fine-tuning}: Measures perplexity of model trained on new language.
-		\item \textbf{Vocabulary Size}: Total lexicon count.
-		\item \textbf{Phonemic Inventory Size}: Number of phonemes used.
-		\item \textbf{Phonotactic Complexity}: Assesses rule complexity.
-	\end{itemize}
-\end{frame}
-
-% Slide 7: Zipf's Law Metric
-\begin{frame}{Zipf's Law Metric}
-	\begin{itemize}
-		\item Evaluates how closely the generated language follows Zipf’s Law.
-		\item Zipf exponent compared against that of the original English text.
-		\item Indicator of natural distribution of word frequencies.
-	\end{itemize}
-\end{frame}
-
 \section{System Design and Implementation}
 
 % Slide 1
@@ -389,6 +340,55 @@
 	\includegraphics[width=0.7\linewidth]{figures/evaluations_structure.png}
 \end{frame}
 
+% Slide 4: Evaluation Framework
+\begin{frame}{Evaluation Framework}
+	\begin{itemize}
+		\item Evaluation modules benchmark generated languages.
+		\item Results stored alongside each language.
+		\item Three main categories:
+		\begin{itemize}
+			\item Information Loss
+			\item Simplicity
+			\item Zipf's Law Compliance
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+% Slide 5: Information Loss Metrics
+\begin{frame}{Information Loss Metrics}
+	\begin{itemize}
+		\item \textbf{Machine Translation Scores}:
+		\begin{itemize}
+			\item Round-trip translation using LLM
+			\item Evaluated with BLEU, ROUGE, METEOR
+		\end{itemize}
+		\item \textbf{Reading Comprehension}:
+		\begin{itemize}
+			\item LLM answers questions based on original and translated texts
+			\item Score = \% of correct answers
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+% Slide 6: Simplicity Metrics
+\begin{frame}{Simplicity Metrics}
+	\begin{itemize}
+		\item \textbf{BERT Fine-tuning}: Measures perplexity of model trained on new language.
+		\item \textbf{Vocabulary Size}: Total lexicon count.
+		\item \textbf{Phonemic Inventory Size}: Number of phonemes used.
+		\item \textbf{Phonotactic Complexity}: Assesses rule complexity.
+	\end{itemize}
+\end{frame}
+
+% Slide 7: Zipf's Law Metric
+\begin{frame}{Zipf's Law Metric}
+	\begin{itemize}
+		\item Evaluates how closely the generated language follows Zipf’s Law.
+		\item Zipf exponent compared against that of the original English text.
+		\item Indicator of natural distribution of word frequencies.
+	\end{itemize}
+\end{frame}
+
 % Slide 8
 \begin{frame}{Evaluation Modules}
 	\begin{itemize}
@@ -409,34 +409,6 @@
 		\item \textbf{Two-Level:} Bi-syllabic clustering-based vocabulary.
 		\item \textbf{Cluster \& Simplify:} One word per cluster.
 		\item \textbf{Phonotactics:} Custom syllable constraints.
-	\end{itemize}
-\end{frame}
-
-% Slide 10
-\begin{frame}{LLMs and Embedding Models}
-	\begin{itemize}
-		\item \textbf{Local LLMs:} via Ollama, e.g. \texttt{deepseek-r1:14b}.
-		\item \textbf{Remote LLMs:} OpenAI and Groq (\texttt{gpt-4o}).
-		\item \textbf{Embeddings:} \texttt{all-MiniLM-L6-v2}.
-	\end{itemize}
-\end{frame}
-
-% Slide 11
-\begin{frame}{Clustering Methods}
-	\begin{itemize}
-		\item Subclasses of \texttt{ClusteringMethod}.
-		\item Vocabulary clustering: \texttt{AgglomerativeClustering}.
-		\item Alternatives supported: KMeans, DBScan, HDBScan.
-	\end{itemize}
-\end{frame}
-
-% Slide 12
-\begin{frame}{Datasets and Tools}
-	\begin{itemize}
-		\item Dataset: \texttt{RaceC} (Race-C dataset).
-		\item Word frequency: \texttt{wordfreq} library.
-		\item Corpus source: Exquisite Corpus.
-		\item Outputs: HTML summaries and translation pairs.
 	\end{itemize}
 \end{frame}
 
@@ -521,7 +493,6 @@
 		\item Simplification is possible in phonology, grammar, and vocab.
 		\item Reading comprehension is robust even with simplification.
 		\item Zipf-like distributions emerged naturally.
-		\item Framework enables modular experimentation and evaluation.
 	\end{itemize}
 \end{frame}
 
@@ -548,6 +519,34 @@
 		\caption{Comparing different Simplifying vocabulary generation methods with the baseline.}
 		\label{fig:compare-vocab-gen-types}
 	\end{figure}
+\end{frame}
+
+% Slide 10
+\begin{frame}{LLMs and Embedding Models}
+	\begin{itemize}
+		\item \textbf{Local LLMs:} via Ollama, e.g. \texttt{deepseek-r1:14b}.
+		\item \textbf{Remote LLMs:} OpenAI and Groq (\texttt{gpt-4o}).
+		\item \textbf{Embeddings:} \texttt{all-MiniLM-L6-v2}.
+	\end{itemize}
+\end{frame}
+
+% Slide 11
+\begin{frame}{Clustering Methods}
+	\begin{itemize}
+		\item Subclasses of \texttt{ClusteringMethod}.
+		\item Vocabulary clustering: \texttt{AgglomerativeClustering}.
+		\item Alternatives supported: KMeans, DBScan, HDBScan.
+	\end{itemize}
+\end{frame}
+
+% Slide 12
+\begin{frame}{Datasets and Tools}
+	\begin{itemize}
+		\item Dataset: \texttt{RaceC} (Race-C dataset).
+		\item Word frequency: \texttt{wordfreq} library.
+		\item Corpus source: Exquisite Corpus.
+		\item Outputs: HTML summaries and translation pairs.
+	\end{itemize}
 \end{frame}
 
 
